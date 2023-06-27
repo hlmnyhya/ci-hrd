@@ -14,7 +14,7 @@
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA MPP</h2>
-                            <td><a href="<?php echo base_url('Mpp/tambahdatampp')?>"><button
+                            <td><a href="<?php echo base_url('tambahdatampp')?>"><button
                                         class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
                                             Data</i></button></a></td>
                         </div>
@@ -35,24 +35,13 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                        <td>A</td>
-                                        <td>d</td>
-                                        <td>d</td>
-                                        <td><a href="<?php echo base_url('detailkaryawan')?>"><button
-                                                    class="btn btn-primary btn-sm"><i class="fa fa-eye">
-                                                        Detail</i></button></a>
-                                            <a href="<?php echo base_url('profil')?>"><button
-                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash-o">
-                                                        Hapus
-                                                    </i></button></a>
-                                            <a href="<?php echo base_url('editdatakaryawan')?>"><button
-                                                    class="btn btn-warning btn-sm"><i class="fa fa-cogs"> 
-                                                        Edit
-                                                    </i></button></a>
-                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>

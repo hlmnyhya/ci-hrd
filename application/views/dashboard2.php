@@ -4,7 +4,7 @@
                        <div class="row column_title">
                            <div class="col-md-12">
                                <div class="page_title">
-                                   <h2>DASHBOARD PLASMA BATAKAN</h2>
+                                   <h2>Dashboard Plasma Batakan</h2>
                                </div>
                            </div>
                        </div>
@@ -65,7 +65,7 @@
                                    <div class="counter_no">
                                        <div>
                                            <p class="total_no">338</p>
-                                           <p class="head_couter">Karyawan Keluar</p>
+                                           <p class="head_couter">Kariyawan Keluar</p>
                                        </div>
                                    </div>
                                </div>
@@ -77,7 +77,7 @@
                                    <div class="white_shd full">
                                        <div class="full graph_head">
                                            <div class="heading1 margin_0">
-                                               <h2>HEADCOUNT</h2>
+                                               <h2>Extra Area Chart</h2>
                                            </div>
                                        </div>
                                        <div class="full graph_revenue">
