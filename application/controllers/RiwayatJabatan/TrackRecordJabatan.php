@@ -22,7 +22,7 @@ class TrackRecordJabatan extends CI_Controller {
 	{
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('RiwayatJabatan/trackrecordjabatan');
+        $this->load->view('Master/RiwayatJabatan/trackrecordjabatan');
         $this->load->view('templates/footer');
 	}
 }

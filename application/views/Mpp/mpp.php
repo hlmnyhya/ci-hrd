@@ -14,7 +14,7 @@
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA MPP</h2>
-                            <td><a href="<?php echo base_url('tambahdatampp')?>"><button
+                            <td><a href="<?php echo base_url('Mpp/mpp/tambah')?>"><button
                                         class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
                                             Data</i></button></a></td>
                         </div>
@@ -24,6 +24,7 @@
                             <table class="table table-hover data">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Unit</th>
                                         <th>Posisi</th>
                                         <th>Total</th>
@@ -34,16 +35,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                     <?php $no=1; foreach($mpp as $m) : ?>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $m->unit?></td>
+                                        <td><?php echo $m->posisi?></td>
+                                        <td><?php echo $m->total?></td>
+                                        <td><?php echo $m->total_karyawan?></td>
+                                        <td><?php echo $m->vacant?></td>
+                                        <td><?php echo $m->keterangan?></td>
+                                            <td>
+                                    <a href="<?php echo base_url('mpp/mpp/edit/'.$m-> id_mpp)?>"
+                                        class="btn icon btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="<?php echo base_url('mpp/mpp/delete/'.$m-> id_mpp)?>"
+                                        class="btn icon btn-danger"><i class="fa fa-trash"></i></a>
+                                 
+                                </td>
                                     </tr>
                                 </tbody>
+                                 <?php endforeach; ?>
                             </table>
                         </div>
                     </div>

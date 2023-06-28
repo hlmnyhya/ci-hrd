@@ -1,46 +1,39 @@
 <?php 
-    defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_Mpp extends CI_Model{
+class M_Mpp extends CI_Model{
     
-    public function getMpp($id= null)
+    public function show_data()
     {
-        if ($id===null) {
-            $result = $this->db->get('Mpp')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('Mpp',['id_Mpp' => $id])->result();
-            return $result;               
-        }
+        return $this->db->query('SELECT * FROM mpp');
     }
 
-    public function addMpp($data)
+    public function get_data($table){
+        return $this->db->get($table);
+    }
+    
+ public function insert_data($table, $data)
+{
+    $this->db->insert($table, $data);
+}
+
+    public function update_data($table, $data, $where)
     {
-        $result = $this->db->insert('Mpp',$data); 
-        return $result;
+        $this->db->update($table, $data, $where);
+    }
+        
+    public function delete_data($where,$table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 
-    public function editMpp($id)
+    public function detail_data($id_mpp = NULL)
     {
-        $this->db->where('id_mpp',$id);
-        $query = $this->db->get('mpp');
-        return $query->row();
+        $query = $this->db->get_where('mpp',array('id_mpp'=> $id_mpp))->row();
+        return $query;
     }
-
-    public function updateMpp($id, $data)
-    {
-        $this->db->where('id_mpp', $id);
-        $this->db->update('mpp', $data);  
-        return $this->db->affected_rows();
-    }
-
-    public function deleteMpp($id)
-    {
-        $this->db->where('id_Mpp', $id);
-        $this->db->delete('Mpp');  
-        return $this->db->affected_rows();
-    }
-
+   
 }
 
 /* End of file M_Mpp.php */

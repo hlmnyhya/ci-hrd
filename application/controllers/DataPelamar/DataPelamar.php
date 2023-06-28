@@ -22,7 +22,7 @@ class DataPelamar extends CI_Controller {
 	{
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('DataPelamar/datapelamar');
+        $this->load->view('v_karyawan/pelamar/datapelamar');
         $this->load->view('templates/footer');
 	}
 }

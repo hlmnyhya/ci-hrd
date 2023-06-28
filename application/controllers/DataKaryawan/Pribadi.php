@@ -22,7 +22,7 @@ class Pribadi extends CI_Controller {
 	{
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('DataKaryawan/pribadi');
+        $this->load->view('v_karyawan/pribadi/pribadi');
         $this->load->view('templates/footer');
 	}
 }

@@ -22,7 +22,7 @@ class DataGolongan extends CI_Controller {
 	{
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('RiwayatGolongan/datagolongan');
+        $this->load->view('Master/RiwayatGolongan/datagolongan');
         $this->load->view('templates/footer');
 	}
 }
