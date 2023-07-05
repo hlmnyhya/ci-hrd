@@ -14,7 +14,7 @@
               <form action="<?php echo base_url('thl/thl/edit_data'); ?>" method="post" role="form">
                 <div class="form-group">
                     <input type="hidden" class=" form-control col-md-6" name="id_thl" id="formGroupExampleInput2"
-                        placeholder="" value="<?php echo $t->id_thl; ?>">
+                        placeholder="id_thl" value="<?php echo $t->id_thl; ?>">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Nama</label>
