@@ -10,8 +10,8 @@
                        </div>
                        <!-- row -->
                        <div class="row column1">
-                           <div class="col-md-2"></div>
-                           <div class="col-md-8">
+                           <div class="col-md-12"></div>
+                           <div class="col-md-12">
                                <div class="white_shd full margin_bottom_30">
                                    <div class="full graph_head">
                                        <div class="heading1 margin_0">
@@ -29,17 +29,87 @@
                                                    <div class="profile_contant">
                                                        <div class="contact_inner">
                                                            <h3>John Smith</h3>
-                                                           <table class="table table-striped table-bordered data">
-                                                               <thead>
-                                                                   <tr>
-                                                                       <th>Nama Karyawan</th>
-                                                                       <th>Jabatan</th>
-                                                                       <th>Golongan</th>
-                                                                       <th>Riwayat Jaban</th>
-                                                                       <th>Masa Kerja</th>
-                                                                   </tr>
-                                                               </thead>
-                                                           </table>
+                                                           <div class="table_section padding_infor_info">
+                                                               <div class="table-responsive-sm">
+                                                                   <table
+                                                                       class="table table-striped table-bordered data">
+                                                                       <thead>
+                                                                           <tr>
+                                                                               <th>ID Karyawan</th>
+                                                                               <th>Nama</th>
+                                                                               <th>Tanggal Masuk</th>
+                                                                               <th>Masa Kerja </th>
+                                                                               <th>Divisi</th>
+                                                                               <th>Jabatan</th>
+                                                                               <th>Status Terakhir</th>
+                                                                               <th>Golongan</th>
+                                                                               <th>BPJS TK</th>
+                                                                               <th>BPJS KES</th>
+                                                                               <th>NPWP</th>
+                                                                               <th>Status PTKP</th>
+                                                                               <th>Alamat KTP</th>
+                                                                               <th>Alamat Domisili</th>
+                                                                               <th>PKWT Mulai</th>
+                                                                               <th>PKWT Selesai</th>
+                                                                               <th>PKWT 2 Mulai</th>
+                                                                               <th>PKWT 2 Selesai</th>
+                                                                               <th>THT</th>
+                                                                               <th>THL</th>
+                                                                               <th>Percobaan Mulai</th>
+                                                                               <th>Percobaan Selesai</th>
+                                                                               <th>Karyawan Pribadi</th>
+                                                                               <th>Keluarga</th>
+                                                                           </tr>
+                                                                       </thead>
+                                                                       <tbody>
+                                                                           <tr>
+                                                                               <td>1</td>
+                                                                               <td>Doe</td>
+                                                                               <td>john@example.com</td>
+                                                                               <td>A</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td>d</td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td></td>
+                                                                               <td><a
+                                                                                       href="<?php echo base_url('DataKaryawan/detailkaryawan')?>"><button
+                                                                                           class="btn btn-primary btn-sm"><i
+                                                                                               class="fa fa-eye">
+                                                                                               Detail</i></button></a>
+                                                                                   <a
+                                                                                       href="<?php echo base_url('DataKaryawan/profil')?>"><button
+                                                                                           class="btn btn-danger btn-sm"><i
+                                                                                               class="fa fa-trash-o">
+                                                                                               Hapus
+                                                                                           </i></button></a>
+                                                                                   <a
+                                                                                       href="<?php echo base_url('DataKaryawan/editdatakaryawan')?>"><button
+                                                                                           class="btn btn-warning btn-sm"><i
+                                                                                               class="fa fa-cogs">
+                                                                                               Edit
+                                                                                           </i></button></a>
+                                                                               </td>
+                                                                           </tr>
+                                                                       </tbody>
+                                                                   </table>
+                                                               </div>
+                                                           </div>
                                                        </div>
 
                                                    </div>
@@ -62,26 +132,34 @@
                                                            <div class="tab-content" id="nav-tabContent">
                                                                <div class="tab-pane fade" id="project_worked"
                                                                    role="tabpanel" aria-labelledby="nav-profile-tab">
-                                                                   <p>Sed ut perspiciatis unde omnis iste natus error
+                                                                   <p>Sed ut perspiciatis unde omnis iste natus
+                                                                       error
                                                                        sit voluptatem accusantium doloremque
-                                                                       laudantium, totam rem aperiam, eaque ipsa quae
+                                                                       laudantium, totam rem aperiam, eaque ipsa
+                                                                       quae
                                                                        ab illo inventore veritatis et
                                                                        quasi architecto beatae vitae dicta sunt
-                                                                       explicabo. Nemo enim ipsam voluptatem quia
-                                                                       voluptas sit aspernatur aut odit aut fugit, sed
+                                                                       explicabo. Nemo enim ipsam voluptatem
+                                                                       quia
+                                                                       voluptas sit aspernatur aut odit aut
+                                                                       fugit, sed
                                                                        quia consequuntur magni dolores eos
                                                                        qui ratione voluptatem sequi nesciunt.
                                                                    </p>
                                                                </div>
                                                                <div class="tab-pane fade" id="profile_section"
                                                                    role="tabpanel" aria-labelledby="nav-contact-tab">
-                                                                   <p>Sed ut perspiciatis unde omnis iste natus error
+                                                                   <p>Sed ut perspiciatis unde omnis iste natus
+                                                                       error
                                                                        sit voluptatem accusantium doloremque
-                                                                       laudantium, totam rem aperiam, eaque ipsa quae
+                                                                       laudantium, totam rem aperiam, eaque ipsa
+                                                                       quae
                                                                        ab illo inventore veritatis et
                                                                        quasi architecto beatae vitae dicta sunt
-                                                                       explicabo. Nemo enim ipsam voluptatem quia
-                                                                       voluptas sit aspernatur aut odit aut fugit, sed
+                                                                       explicabo. Nemo enim ipsam voluptatem
+                                                                       quia
+                                                                       voluptas sit aspernatur aut odit aut
+                                                                       fugit, sed
                                                                        quia consequuntur magni dolores eos
                                                                        qui ratione voluptatem sequi nesciunt.
                                                                    </p>

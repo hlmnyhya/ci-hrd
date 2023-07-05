@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+    <title><?php echo $title ;?></title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/dataTables.bootstrap.css">
     <!-- site icon -->
-    <link rel="icon" href="<?php echo base_url();?>assets/images/logo/logo.png" type="image/png" />
+    <link rel="icon" href="<?php echo base_url();?>assets/images/CA BARU.png" type="image/png" />
 
     <!-- bootstrap css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css');?>" />

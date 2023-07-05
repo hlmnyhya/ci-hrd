@@ -3,53 +3,51 @@
     
     class M_thl extends CI_Model{
     
-    public function getThl($id= null)
+ 
+     public function show_data()
     {
-        if ($id===null) {
-            $result = $this->db->get('thl')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('thl',['id_thl' => $id])->result();
-            return $result;               
-        }
+        return $this->db->query("SELECT t.id_thl, t.nama, t.nik, d.divisi, j.jabatan, t.tanggal_masuk, t.tanggal_keluar, t.keterangan, t.status
+FROM thl t
+JOIN divisi d ON t.id_divisi = d.id_divisi
+JOIN jabatan j ON t.id_jabatan = j.id_jabatan;
+");
     }
 
-    public function getThlbyid($id)
+    public function show_divisi()
     {
-        if ($id===null) {
-            $result = $this->db->get('thl')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('thl',['id_thl' => $id])->result();
-            return $result;               
-        }
+        return $this->db->query("SELECT * FROM divisi");
     }
 
-    public function addThl($data)
+    public function show_jabatan()
     {
-        $result = $this->db->insert('thl',$data); 
-        return $result;
+        return $this->db->query("SELECT * FROM jabatan");
     }
 
-    public function editTHL($id)
+    public function get_data($table)
     {
-        $this->db->where('id_thl',$id);
-        $query = $this->db->get('thl');
-        return $query->row();
+        return $this->db->get($table);
+    }
+    
+    public function insert_data($table, $data)
+    {
+        $this->db->insert($table, $data);
     }
 
-    public function updateThl($id, $data)
+    public function update_data($table, $data, $where)
     {
-        $this->db->where('id_thl', $id);
-        $this->db->update('thl', $data);  
-        return $this->db->affected_rows();
+        $this->db->update($table, $data, $where);
+    }
+        
+    public function delete_data($where,$table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 
-    public function deleteThl($id)
+    public function detail_data($id_thl = NULL)
     {
-        $this->db->where('id_thl', $id);
-        $this->db->delete('thl');  
-        return $this->db->affected_rows();
+        $query = $this->db->get_where('thl', array('id_thl'=> $id_thl))->row();
+        return $query;
     }
 
 }

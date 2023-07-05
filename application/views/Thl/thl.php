@@ -14,7 +14,7 @@
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA THL</h2>
-                            <td><a href="<?php echo base_url('Thl/tambahdatathl')?>"><button
+                            <td><a href="<?php echo base_url('Thl/thl/tambah_data')?>"><button
                                         class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
                                             Data</i></button></a></td>
                         </div>
@@ -24,36 +24,38 @@
                             <table class="table table-hover data">
                                 <thead>
                                     <tr>
-                                        <th>Unit</th>
-                                        <th>Posisi</th>
-                                        <th>Total</th>
-                                        <th>Total Karyawan</th>
-                                        <th>Vacant</th>
-                                        <th>Keterangan</th>
+                                        <th>No</th>
+                                        <th>NAMA</th>
+                                        <th>NIK</th>
+                                        <th>DIVISI</th>
+                                        <th>JABATAN</th>
+                                        <th>TANGGAL MASUK</th>
+                                        <th>TANGGAL KELUAR</th>
+                                        <th>KETERANGAN</th>
+                                        <th>STATUS</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                        <td>A</td>
-                                        <td>d</td>
-                                        <td>d</td>
-                                        <td><a href="<?php echo base_url('detailkaryawan')?>"><button
-                                                    class="btn btn-primary btn-sm"><i class="fa fa-eye">
-                                                        Detail</i></button></a>
-                                            <a href="<?php echo base_url('profil')?>"><button
-                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash-o">
-                                                        Hapus
-                                                    </i></button></a>
-                                            <a href="<?php echo base_url('editdatakaryawan')?>"><button
-                                                    class="btn btn-warning btn-sm"><i class="fa fa-cogs"> 
-                                                        Edit
-                                                    </i></button></a>
-                                        </td>
-                                    </tr>
+                               <tbody>
+                                    <?php $no=1; foreach($thl as $t) : ?>
+                                        <tr>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo $t->nama?></td>
+                                            <td><?php echo $t->nik?></td>
+                                            <td><?php echo $t->divisi?></td>
+                                            <td><?php echo $t->jabatan?></td>
+                                            <td><?php echo $t->tanggal_masuk?></td>
+                                            <td><?php echo $t->tanggal_keluar?></td>
+                                            <td style="word-wrap: break-word;"><?php echo $t->keterangan?></td>
+                                            <td><?php echo $t->status?></td>
+                                            <td>
+                                            <a href="<?php echo base_url('thl/thl/edit/'.$t-> id_thl)?>"
+                                            class="btn icon btn-warning"><i class="fa fa-edit"></i></a>
+                                            <a href="<?php echo base_url('thl/thl/delete/'.$t-> id_thl)?>"
+                                            class="btn icon btn-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

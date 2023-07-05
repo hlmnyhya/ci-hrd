@@ -11,7 +11,7 @@ class MPP extends CI_Controller {
     
     public function index()
     {
-        $data['title'] = 'MPP';
+        $data['title'] = 'Data MPP';
         $data['mpp'] = $this->m_mpp->show_data()->result();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
@@ -58,7 +58,7 @@ class MPP extends CI_Controller {
         );
 
         $this->m_mpp->insert_data('mpp', $data);
-        redirect('mpp/mpp'); // Change 'komoditas' to 'mpp' if that's the correct redirection URL
+        redirect('mpp/mpp');
     }
 
 	public function edit_data()

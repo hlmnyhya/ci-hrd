@@ -1017,9 +1017,9 @@ a[data-toggle="collapse"] {
 }
 
 .user_img {
-    width: 75px;
-    height: 75px;
-    float: left;
+    width: 100px;
+    height: 100px;
+    float: center;
 }
 
 .logo_section {

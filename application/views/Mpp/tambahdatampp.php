@@ -7,6 +7,9 @@
                 </div>
             </div>
         </div>
+
+            
+        
         <div id="layoutSidenav_content">
             <main>
                 <form action="<?php echo base_url('mpp/mpp/create'); ?>" method="post" role="form">
@@ -37,10 +40,11 @@
                     <input type="text" class="form-control col-md-6" name="keterangan" id="formGroupExampleInput2" placeholder="">
                 </div>
                 <br>
+                <button class="btn btn-primary" type="submit"><i class="fa fa-arrow-circle-right"></i> Simpan</button>
+            </form>
             <a href="<?php echo base_url('Mpp/mpp')?>"><button class="btn btn-danger btn-"><i
                 class="fa fa-arrow-circle-left">
             </i> Back</button></a>
-            <button class="btn btn-primary" type="submit"><i class="fa fa-arrow-circle-right"></i> Simpan</button>
-            </form>
             </main>
+        </div>
         </div>

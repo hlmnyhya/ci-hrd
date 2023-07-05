@@ -20,9 +20,109 @@ class THL extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Data THL';
+		$data['thl'] = $this->m_thl->show_data()->result();
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('Thl/thl');
+        $this->load->view('Thl/thl', $data);
         $this->load->view('templates/footer');
 	}
+	
+	 public function tambah_data()
+	{
+		$data['title'] = 'Tambah Data THL';
+		$data['divisi'] = $this->m_thl->show_divisi()->result();
+		$data['jabatan'] = $this->m_thl->show_jabatan()->result();
+		$this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('Thl/tambahdatathl', $data);
+        $this->load->view('templates/footer');
+	}
+
+	public function create()
+	{
+		$id = $this->input->post('id_thl');
+		$nama = $this->input->post('nama');
+		$nik = $this->input->post('nik');
+		$id_divisi = $this->input->post('id_divisi');
+		$id_jabatan = $this->input->post('id_jabatan');
+		$tanggal_masuk = $this->input->post('tanggal_masuk');
+		$tanggal_keluar = $this->input->post('tanggal_keluar');
+		$keterangan = $this->input->post('keterangan');
+		$status = $this->input->post('status');
+
+		$data = array(
+			'id_thl' => $id,
+			'nama' => $nama,
+			'nik' => $nik,
+			'id_divisi' => $id_divisi,
+			'id_jabatan' => $id_jabatan,
+			'tanggal_masuk' => $tanggal_masuk,
+			'tanggal_keluar' => $tanggal_keluar,
+			'keterangan' => $keterangan,
+			'status' => $status
+		);
+
+		$this->m_thl->insert_data('thl', $data);
+
+		redirect('Thl/thl');
+	}
+
+	public function edit($id)
+	{
+	    $where = array('id_thl' => $id);
+	    $data['thl'] = $this->db->query("SELECT * FROM thl WHERE id_thl = '$id'")->result();
+	    $data['divisi'] = $this->m_thl->show_divisi()->result();
+	    $data['jabatan'] = $this->m_thl->show_jabatan()->result();
+	    $this->load->view('templates/header');
+	    $this->load->view('templates/sidebar');
+	    $this->load->view('thl/editdatathl', $data);
+	    $this->load->view('templates/footer');
+	}
+
+
+
+	public function edit_data()
+	{
+		$id = $this->input->post('id_thl');
+		$nama = $this->input->post('nama');
+		$nik = $this->input->post('nik');
+		$id_divisi = $this->input->post('id_divisi');
+		$id_jabatan = $this->input->post('id_jabatan');
+		$tanggal_masuk = $this->input->post('tanggal_masuk');
+		$tanggal_keluar = $this->input->post('tanggal_keluar');
+		$keterangan = $this->input->post('keterangan');
+		$status = $this->input->post('status');
+
+		$data = array(
+			'id_thl' => $id,
+			'nama' => $nama,
+			'nik' => $nik,
+			'id_divisi' => $id_divisi,
+			'id_jabatan' => $id_jabatan,
+			'tanggal_masuk' => $tanggal_masuk,
+			'tanggal_keluar' => $tanggal_keluar,
+			'keterangan' => $keterangan,
+			'status' => $status
+		);
+
+		$where = array(
+			'id_thl' => $id
+		);
+
+		$this->m_thl->update_data('thl', $data, $where);
+		redirect('thl/thl');
+	}
+
+
+	public function delete($id = NULL)
+    {
+    	if($id == null){
+			redirect('thl/thl');
+		}
+    	$where = array('id_thl' => $id);
+    	$this->m_thl->delete_data($where, 'thl');
+		redirect('thl/thl');
+    }
+
 }
