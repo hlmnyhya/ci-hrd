@@ -13,7 +13,7 @@ class MPP extends CI_Controller {
     {
         $data['title'] = 'Data MPP';
         $data['mpp'] = $this->m_mpp->show_data()->result();
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('Mpp/mpp', $data);
         $this->load->view('templates/footer');
@@ -21,7 +21,8 @@ class MPP extends CI_Controller {
 
     public function tambah()
     {
-        $this->load->view('templates/header');
+        $data['title'] = 'Tambah Data MPP';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('Mpp/tambahdatampp');
         $this->load->view('templates/footer');
@@ -31,7 +32,8 @@ class MPP extends CI_Controller {
     {
 		$where = array('id_mpp' => $id);
 		$data['mpp'] = $this->db->query("SELECT * FROM mpp WHERE id_mpp = '$id'")->result();
-        $this->load->view('templates/header');
+        $data['title'] = 'Edit Data MPP';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('Mpp/editdatampp', $data);
         $this->load->view('templates/footer');

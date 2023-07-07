@@ -71,10 +71,11 @@ class THL extends CI_Controller {
 	public function edit($id)
 	{
 	    $where = array('id_thl' => $id);
+		$data['title'] = 'Edit Data THL';
 	    $data['thl'] = $this->db->query("SELECT * FROM thl WHERE id_thl = '$id'")->result();
 	    $data['divisi'] = $this->m_thl->show_divisi()->result();
 	    $data['jabatan'] = $this->m_thl->show_jabatan()->result();
-	    $this->load->view('templates/header');
+	    $this->load->view('templates/header', $data);
 	    $this->load->view('templates/sidebar');
 	    $this->load->view('thl/editdatathl', $data);
 	    $this->load->view('templates/footer');

@@ -1,56 +1,35 @@
 <?php 
-    defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_karyawan_pribadi extends CI_Model{
+class M_karyawan_pribadi extends CI_Model{
     
-    public function getKaryawanpribadi($id= null)
-    {
-        if ($id===null) {
-            $result = $this->db->get('karyawan_pribadi')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('karyawan_pribadi',['id_karyawan_pribadi' => $id])->result();
-            return $result;               
-        }
-    }
+public function show_data()
+{
+    return $this->db->query('SELECT * FROM karyawan_pribadi');
+}
+public function get_data($table){
+    return $this->db->get($table);
+}
 
-    public function getKaryawanpribadibyid($id)
-    {
-        if ($id===null) {
-            $result = $this->db->get('karyawan_pribadi')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('karyawan_pribadi',['id_karyawan_pribadi' => $id])->result();
-            return $result;               
-        }
-    }
-
-    public function addKaryawanpribadi($data)
-    {
-        $result = $this->db->insert('karyawan_pribadi',$data); 
-        return $result;
-    }
-
-    public function editKaryawanpribadi($id)
-    {
-        $this->db->where('id_karyawan_pribadi',$id);
-        $query = $this->db->get('karyawan_pribadi');
-        return $query->row();
-    }
-
-    public function updateKaryawanpribadi($id, $data)
-    {
-        $this->db->where('id_karyawan_pribadi', $id);
-        $this->db->update('karyawan_pribadi', $data);  
-        return $this->db->affected_rows();
-    }
-
-    public function deleteKaryawanpribadi($id)
-    {
-        $this->db->where('id_karyawan_pribadi', $id);
-        $this->db->delete('karyawan_pribadi');  
-        return $this->db->affected_rows();
-    }
+public function insert_data($table, $data)
+{
+    $this->db->insert($table, $data);
+}
+public function update_data($table, $data, $where)
+{
+    $this->db->update($table, $data, $where);
+}
+    
+public function delete_data($where,$table)
+{
+    $this->db->where($where);
+    $this->db->delete($table);
+}
+public function detail_data($id_karyawan_pribadi = NULL)
+{
+    $query = $this->db->get_where('karyawan_peribadi',array('id_karyawan_pribadi'=> $id_karyawan_pribadi))->row();
+    return $query;
+}
 
 }
 

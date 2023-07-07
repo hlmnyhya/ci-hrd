@@ -20,9 +20,170 @@ class Pribadi extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Data Pribadi Karyawan';
+		$data['pribadi'] = $this->m_karyawan_pribadi->show_data()->result();
+		$data['keluarga'] = $this->m_keluarga->show_data()->result();
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('v_karyawan/pribadi/pribadi');
+        $this->load->view('v_karyawan/pribadi/pribadi', $data);
         $this->load->view('templates/footer');
+	}
+	public function tambah_data_pribadi()
+	{
+		$data['title'] = 'Tambah Data Pribadi Karyawan';
+		$this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('v_karyawan/pribadi/tambahdatapribadi');
+        $this->load->view('templates/footer');
+	}
+
+	public function tambah_data_keluarga()
+	{
+		$data['title'] = 'Tambah Data Keluarga Karyawan';
+		$this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('Master/Keluarga/tambahdatakeluarga');
+        $this->load->view('templates/footer');
+	}
+
+	public function create_pribadi()
+	{
+		$id = $this->input->post('id_karyawan_pribadi');
+		$nama = $this->input->post('nama');
+		$alamat_ktp = $this->input->post('alamat_ktp');
+		$alamat_domisili = $this->input->post('alamat_domisili');
+		$agama = $this->input->post('agama');
+		$jenis_kelamin = $this->input->post('jenis_kelamin');
+		$pendidikan = $this->input->post('pendidikan');
+		$jurusan = $this->input->post('jurusan');
+		$tanggal_lahir = $this->input->post('tanggal_lahir');
+		$usia = $this->input->post('usia');
+		$keluarga = $this->input->post('keluarga');
+
+        $data = array(
+			'id_karyawan_pribadi' => $id,
+			'nama' => $nama,
+			'alamat_ktp' => $alamat_ktp,
+			'alamat_domisili' => $alamat_domisili,
+			'agama' => $agama,
+			'jenis_kelamin' => $jenis_kelamin,
+			'pendidikan' => $pendidikan,
+			'jurusan' => $jurusan,
+			'tanggal_lahir' => $tanggal_lahir,
+			'usia' => $usia,
+			'keluarga' => $keluarga
+        );
+
+        $this->m_karyawan_pribadi->insert_data('karyawan_pribadi', $data);
+        redirect('DataKaryawan/Pribadi/tambah_data_keluarga');
+	}
+
+	public function edit_pribadi($id)
+	{
+		$where = array('id_karyawan_pribadi' => $id);
+		$data['title'] = 'Edit Data Pribadi Karyawan';
+		$data['karyawan_pribadi'] = $this->m_karyawan_pribadi->edit_data($where, 'karyawan_pribadi')->result();
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar');
+		$this->load->view('v_karyawan/pribadi/editdatapribadi', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function edit_data_pribadi()
+	{
+		$id = $this->input->post('id_karyawan_pribadi');
+		$nama = $this->input->post('nama');
+		$alamat_ktp = $this->input->post('alamat_ktp');
+		$alamat_domisili = $this->input->post('alamat_domisili');
+		$agama = $this->input->post('agama');
+		$jenis_kelamin = $this->input->post('jenis_kelamin');
+		$pendidikan = $this->input->post('pendidikan');
+		$jurusan = $this->input->post('jurusan');
+		$tanggal_lahir = $this->input->post('tanggal_lahir');
+		$usia = $this->input->post('usia');
+		$keluarga = $this->input->post('keluarga');
+
+		$data = array(
+			'id_karyawan_pribadi' => $id,
+			'nama' => $nama,
+			'alamat_ktp' => $alamat_ktp,
+			'alamat_domisili' => $alamat_domisili,
+			'agama' => $agama,
+			'jenis_kelamin' => $jenis_kelamin,
+			'pendidikan' => $pendidikan,
+			'jurusan' => $jurusan,
+			'tanggal_lahir' => $tanggal_lahir,
+			'usia' => $usia,
+			'keluarga' => $keluarga
+		);
+
+		$where = array(
+			'id_karyawan_pribadi' => $id
+		);
+
+		$this->m_karyawan_pribadi->update_data('karyawan_pribadi', $data, $where);
+		redirect('DataKaryawan/Pribadi');
+	}
+
+	public function delete_data($id = NULL)
+	{
+		$where = array('id_karyawan_pribadi' => $id);
+		$this->m_karyawan_pribadi->delete_data($where, 'karyawan_pribadi');
+		redirect('DataKaryawan/Pribadi');
+	}
+
+	public function create_keluarga()
+	{
+		$id = $this->input->post('id_keluarga');
+		$istri = $this->input->post('istri_suami');
+		$anak1 = $this->input->post('anak1');
+		$anak2 = $this->input->post('anak2');
+		$anak3 = $this->input->post('anak3');
+
+		$data = array(
+			'id_keluarga' => $id,
+			'istri_suami' => $istri,
+			'anak1' => $anak1,
+			'anak2' => $anak2,
+			'anak3' => $anak3
+		);
+
+		$this->m_keluarga->insert_data('keluarga', $data);
+		redirect('DataKaryawan/Pribadi');
+	}
+
+	public function edit_keluarga($id)
+	{
+		$where = array('id_keluarga' => $id);
+		$data['title'] = 'Edit Data Keluarga Karyawan';
+		$data['keluarga'] = $this->m_keluarga->edit_data($where, 'keluarga')->result();
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar');
+		$this->load->view('v_karyawan/keluarga/editdatakeluarga', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function edit_data_keluarga()
+	{
+		$id = $this->input->post('id_keluarga');
+		$istri = $this->input->post('istri_suami');
+		$anak1 = $this->input->post('anak1');
+		$anak2 = $this->input->post('anak2');
+		$anak3 = $this->input->post('anak3');
+
+		$data = array(
+			'id_keluarga' => $id,
+			'istri_suami' => $istri,
+			'anak1' => $anak1,
+			'anak2' => $anak2,
+			'anak3' => $anak3
+		);
+
+		$where = array(
+			'id_keluarga' => $id
+		);
+
+		$this->m_keluarga->update_data('keluarga', $data, $where);
+		redirect('DataKaryawan/Keluarga');
 	}
 }
