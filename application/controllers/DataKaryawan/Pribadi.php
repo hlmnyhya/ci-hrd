@@ -18,31 +18,46 @@ class Pribadi extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+	
 	public function index()
-	{
-		$data['title'] = 'Data Pribadi Karyawan';
-		$data['pribadi'] = $this->m_karyawan_pribadi->show_data()->result();
-		$data['keluarga'] = $this->m_keluarga->show_data()->result();
-		$this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('v_karyawan/pribadi/pribadi', $data);
-        $this->load->view('templates/footer');
-	}
+{
+    $config['base_url'] = base_url('DataKaryawan/Pribadi/index');
+    // $config['total_rows'] = $this->m_karyawan_pribadi->count_data();
+    $config['per_page'] = 3;
+    $config['uri_segment'] = 4;
+
+    $this->load->library('pagination');
+    $this->pagination->initialize($config);
+
+    $offset = $this->uri->segment(4) ? $this->uri->segment(4) : 1;
+    $data['pribadi'] = $this->m_karyawan_pribadi->get_data($config['per_page'], $offset)->result();
+    $data['pagination'] = $this->pagination->create_links();
+
+    // Periksa apakah properti nomor_halaman ada dalam data pribadi
+    $data['pribadi_with_pagination'] = [];
+    foreach ($data['pribadi'] as $p) {
+        $p->nomor_halaman = $offset; // Menggunakan offset sebagai nomor halaman
+        $data['pribadi_with_pagination'][] = $p;
+        $offset++;
+    }
+
+    $data['title'] = 'Data Pribadi Karyawan';
+    $data['keluarga'] = $this->m_keluarga->show_data()->result();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('v_karyawan/pribadi/pribadi', $data);
+    $this->load->view('templates/footer');
+}
+
+
+
 	public function tambah_data_pribadi()
 	{
 		$data['title'] = 'Tambah Data Pribadi Karyawan';
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('v_karyawan/pribadi/tambahdatapribadi');
-        $this->load->view('templates/footer');
-	}
-
-	public function tambah_data_keluarga()
-	{
-		$data['title'] = 'Tambah Data Keluarga Karyawan';
-		$this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('Master/Keluarga/tambahdatakeluarga');
         $this->load->view('templates/footer');
 	}
 
@@ -80,9 +95,9 @@ class Pribadi extends CI_Controller {
 
 	public function edit_pribadi($id)
 	{
-		$where = array('id_karyawan_pribadi' => $id);
 		$data['title'] = 'Edit Data Pribadi Karyawan';
-		$data['karyawan_pribadi'] = $this->m_karyawan_pribadi->edit_data($where, 'karyawan_pribadi')->result();
+		$where = array('id_karyawan_pribadi' => $id);
+		$data['karyawan_pribadi'] = $this->db->query("SELECT * FROM karyawan_pribadi WHERE id_karyawan_pribadi = '$id'")->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar');
 		$this->load->view('v_karyawan/pribadi/editdatapribadi', $data);
@@ -127,9 +142,22 @@ class Pribadi extends CI_Controller {
 
 	public function delete_data($id = NULL)
 	{
-		$where = array('id_karyawan_pribadi' => $id);
-		$this->m_karyawan_pribadi->delete_data($where, 'karyawan_pribadi');
+		$where1 = array('id_karyawan_pribadi' => $id);
+		$table1 = 'karyawan_pribadi';
+		$where2 = array('id_keluarga' => $id);
+		$table2 = 'keluarga';
+		$this->m_karyawan_pribadi->delete_data($where1, $table1, $where2, $table2);
 		redirect('DataKaryawan/Pribadi');
+	}
+// -------------------------------------------------------------------------------------//
+	
+	public function tambah_data_keluarga()
+	{
+		$data['title'] = 'Tambah Data Keluarga Karyawan';
+		$this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('Master/Keluarga/tambahdatakeluarga');
+        $this->load->view('templates/footer');
 	}
 
 	public function create_keluarga()
@@ -154,12 +182,12 @@ class Pribadi extends CI_Controller {
 
 	public function edit_keluarga($id)
 	{
-		$where = array('id_keluarga' => $id);
 		$data['title'] = 'Edit Data Keluarga Karyawan';
-		$data['keluarga'] = $this->m_keluarga->edit_data($where, 'keluarga')->result();
+		$where = array('id_keluarga' => $id);
+		$data['keluarga'] = $this->db->query("SELECT * FROM keluarga WHERE id_keluarga = '$id'")->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar');
-		$this->load->view('v_karyawan/keluarga/editdatakeluarga', $data);
+		$this->load->view('master/keluarga/editdatakeluarga', $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -186,4 +214,15 @@ class Pribadi extends CI_Controller {
 		$this->m_keluarga->update_data('keluarga', $data, $where);
 		redirect('DataKaryawan/Keluarga');
 	}
+
+	public function delete_data_keluarga($id = NULL)
+	{
+		$where = array('id_keluarga' => $id);
+		$this->m_keluarga->delete_data($where, 'keluarga');
+		redirect('DataKaryawan/Keluarga');
+	}
+
+// -------------------------------------------------------------------------------------//
+
+
 }

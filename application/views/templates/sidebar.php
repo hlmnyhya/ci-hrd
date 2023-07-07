@@ -47,11 +47,11 @@
                             <ul class="collapse list-unstyled" id="element">
                                 <li><a href="<?php echo base_url('DataKaryawan/pribadi')?>">> <span>Pribadi</span></a>
                                 </li>
-                                <li><a href="<?php echo base_url('DataKaryawan/karyawan')?>">> <span>Karyawan</span></a>
-                                </li>
+                                <!-- <li><a href="<?php echo base_url('DataKaryawan/karyawan')?>">> <span>Karyawan</span></a>
+                                </li> -->
                             </ul>
                         </li>
-                        <li class="active">
+                        <!-- <li class="active">
                             <a href="#additional_page" data-toggle="collapse" aria-expanded="false"
                                 class="dropdown-toggle"><i class="fa fa-area-chart yellow_color"></i> <span>Riwayat
                                     Golongan</span></a>
@@ -65,12 +65,12 @@
                                             Golongan</span></a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
                                     class="fa fa-briefcase blue2_color"></i> <span>Riwayat Jabatan</span></a>
                             <ul class="collapse list-unstyled" id="apps">
-                                <!-- <li><a href="<?php echo base_url('trackrecordjabatan')?>">> <span>Track Ricord Jabatan By Name</span></a></li> -->
+                                <li><a href="<?php echo base_url('trackrecordjabatan')?>">> <span>Track Ricord Jabatan By Name</span></a></li>
                                 <li>
                                     <a href="<?php echo base_url('RiwayatJabatan/datajabatan')?>">> <span>
                                             Data Jabatan
@@ -86,12 +86,12 @@
                                             Kerja</span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#apps1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
                                     class="fa fa-users purple_color"></i> <span>Data Pelamar</span></a>
                             <ul class="collapse list-unstyled" id="apps1">
-                                <li><a href="<?php echo base_url('DataPelamar/datapelamar')?>">> <span>Data </span></a>
+                                <li><a href="<?php echo base_url('DataPelamar/DataPelamar')?>">> <span>Pelamar </span></a>
                                 </li>
                             </ul>
                         </li>
