@@ -14,9 +14,9 @@
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA MPP</h2>
-                            <td><a href="<?php echo base_url('Mpp/mpp/tambah')?>"><button
-                                        class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
-                                            Data</i></button></a></td>
+                            <!-- <td><a href="<?php echo base_url('Mpp/mpp/tambah')?>"><button
+                                        class="btn btn-primary"><i class="fa fa-plus"> Tambah
+                                            Data</i></button></a></td> -->
                         </div>
                     </div>
                     <div class="table_section padding_infor_info">
@@ -31,7 +31,7 @@
                                         <th>Total Karyawan</th>
                                         <th>Vacant</th>
                                         <th>Keterangan</th>
-                                        <th>Aksi</th>
+                                        <!-- <th>Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,13 +44,13 @@
                                         <td><?php echo $m->total_karyawan?></td>
                                         <td><?php echo $m->vacant?></td>
                                         <td><?php echo $m->keterangan?></td>
-                                            <td>
+                                            <!-- <td>
                                     <a href="<?php echo base_url('mpp/mpp/edit/'.$m-> id_mpp)?>"
                                         class="btn icon btn-warning"><i class="fa fa-edit"></i></a>
                                     <a href="<?php echo base_url('mpp/mpp/delete/'.$m-> id_mpp)?>"
                                         class="btn icon btn-danger"><i class="fa fa-trash"></i></a>
                                  
-                                </td>
+                                </td> -->
                                     </tr>
                                 </tbody>
                                  <?php endforeach; ?>

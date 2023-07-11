@@ -73,6 +73,7 @@ class Pribadi extends CI_Controller {
 		$jurusan = $this->input->post('jurusan');
 		$tanggal_lahir = $this->input->post('tanggal_lahir');
 		$usia = $this->input->post('usia');
+		$goldar = $this->input->post('golongan_darah');
 		$keluarga = $this->input->post('keluarga');
 
         $data = array(
@@ -86,6 +87,7 @@ class Pribadi extends CI_Controller {
 			'jurusan' => $jurusan,
 			'tanggal_lahir' => $tanggal_lahir,
 			'usia' => $usia,
+			'golongan_darah' => $goldar,
 			'keluarga' => $keluarga
         );
 
@@ -116,6 +118,7 @@ class Pribadi extends CI_Controller {
 		$jurusan = $this->input->post('jurusan');
 		$tanggal_lahir = $this->input->post('tanggal_lahir');
 		$usia = $this->input->post('usia');
+		$goldar = $this->input->post('golongan_darah');
 		$keluarga = $this->input->post('keluarga');
 
 		$data = array(
@@ -129,6 +132,7 @@ class Pribadi extends CI_Controller {
 			'jurusan' => $jurusan,
 			'tanggal_lahir' => $tanggal_lahir,
 			'usia' => $usia,
+			'golongan_darah' => $goldar,
 			'keluarga' => $keluarga
 		);
 
@@ -223,6 +227,6 @@ class Pribadi extends CI_Controller {
 	}
 
 // -------------------------------------------------------------------------------------//
-
+	
 
 }

@@ -31,9 +31,10 @@
                                             <div class="contact_inner">
                                                 <div class="left">
                                                     <h4><?php echo $p->nama?></h4>
-                                                    <p><strong>Alamat: </strong><?php echo $p->alamat_ktp?></p>
                                                     <ul class="list-unstyled">
+                                                        <li>Alamat : <?php echo $p->alamat_ktp?></li>
                                                         <li>Jenis Kelamin : <?php echo $p->jenis_kelamin?></li>
+                                                        <li>Golongan Darah : <?php echo $p->golongan_darah?></li>
                                                         <li>Pendidikan : <?php echo $p->pendidikan?></li>
                                                     </ul>
                                                 </div>

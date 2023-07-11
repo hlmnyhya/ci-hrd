@@ -31,12 +31,12 @@
                                             <div class="contact_inner">
                                                 <div class="left">
                                                     <h4><?php echo $p->nama?></h4>
-                                                    <p><strong>Alamat: </strong><?php echo $p->alamat?></p>
                                                     <ul class="list-unstyled">
+                                                        <li>Alamat : <?php echo $p->alamat?></li>
                                                         <li>Jenis Kelamin : <?php echo $p->jenis_kelamin?></li>
                                                         <li>No Telepon : <?php echo $p->no_telp?></li>
                                                         <li>Email : <?php echo $p->email?></li>
-                                                        <li>File: <a href="<?= base_url('assets/uploads/pelamar/' . $p->file) ?>"><button class="btn btn-primary fa fa-file">Lihat File</button></a></li>
+                                                        <li>File: <a href="<?= base_url('assets/uploads/pelamar/' . $p->file)?>"><button class="btn btn-primary"> <i class="fa fa-file"></i> Lihat File</button></a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="bottom_list">
