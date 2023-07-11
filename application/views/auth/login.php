@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <title>Login Page</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -50,11 +50,11 @@
                <div class="login_section">
                   <div class="logo_login">
                      <div class="center">
-                        <img width="210" src="assets/images/sicartha.png" alt="#" />
+                        <img width="210" height="150" src="assets/images/CA BARU.png" alt="#" />
                      </div>
                   </div>
                   <div class="login_form">
-                     <form>
+                      <form class="user" method="post" action="<?= base_url('auth'); ?>">
                         <fieldset>
                            <div class="field">
                               <label class="label_field">Username</label>
@@ -67,11 +67,11 @@
                            <div class="field">
                               <label class="label_field hidden">hidden label</label>
                               <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
-                              <a class="forgot" href="">Ganti Password?</a>
+                              <a class="forgot"href="<?= base_url('auth/forgotpassword') ?>">Ganti Password?</a>
                            </div>
                            <div class="field margin_0">
                               <label class="label_field hidden">hidden label</label>
-                              <button class="main_bt">Login</button>
+                              <button class="main_bt" type="submit">Login</button>
                            </div>
                         </fieldset>
                      </form>

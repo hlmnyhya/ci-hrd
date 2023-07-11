@@ -1,24 +1,46 @@
-<?php 
-
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Sub_Menu extends CI_Model {
 
-    public function getSubMenu($id = null)
-    {
-        $aktif=1;
-        if ($id === null) {
-            $result = $this->db->get('submenu')->result();
+// dbsubmenu
+    private $_tableSubmenu = "user_sub_menu";
 
-        }else {
-            $result = $this->db->get_where('submenu',['id_menu' => $id, 'in_aktif'=>$aktif ])->result();
-        }
+    public $id;
+    public $menu_id;
+    public $title;
+    public $url;
+    public $icon;
+    public $is_active;
 
-        return $result;
+    public function getByIdSubmenu($id) {
+        return $this->db->get_where($this->_tableSubmenu, ['id' => $id])->row();
     }
 
+    public function saveSubmenu() {
+        $post = $this->input->post();
+        $this->menu_id = $post['menu_id'];
+        $this->title = $post['title'];
+        $this->url = $post-['url'];
+        $this->icon = $post['icon'];
+        $this->is_active = $post['is_active'];
+
+        return $this->db->insert($this->_tableSubmenu, $this);
+    }
+
+    public function updateSubmenu() {
+        $post = $this->input->post();
+        $this->id = $post['id'];
+        $this->menu_id = $post['menu_id'];
+        $this->title = $post['submenu'];
+        $this->url = $post['url'];
+        $this->icon = $post['icon'];
+        $this->is_active = $post['is_active'];
+
+        return $this->db->update($this->_tableSubmenu, $this, array('id' => $post['id']));
+    }
+
+    public function deleteSubmenu($id) {
+        return $this->db->delete($this->_tableSubmenu, array('id' => $id));
+    }
 }
-
-/* End of file M_Sub_Menu.php */
-
-?>   

@@ -1,97 +1,42 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Menu extends CI_Model {
 
-    public function getMenu($access=null)
-    {
-        if ($access === null) {
-            $result = $this->db->get('menu')->result();
-
-        }else {
-            $this->db->select('menu.*, menu_akses.*');
-            
-            $this->db->from('menu');
-            $this->db->join('menu_akses', 'menu_akses.id_menu = menu.id_menu', 'left');
-            $this->db->where("menu.in_aktif ='1'");
-            
-            $this->db->where('menu_akses.id_usergroup', $access);
-            $this->db->order_by('menu.id_menu', 'asc');
-            
-            
-            $result =$this->db->get()->result();
-            
-        }
-
-        return $result;
+    public function getSubMenu() {
+        $query =    "SELECT `user_sub_menu`.*, `user_menu`.`menu`
+                    FROM `user_sub_menu` JOIN `user_menu`
+                    ON `user_sub_menu`.`menu_id` = `user_menu`.`id` ";
+        return $this->db->query($query)->result_array();
     }
 
-    public function getSubMenu($id = null)
-    {
-        $ac=1;
-        if ($id === null) {
-            $result = $this->db->get('submenu')->result();
+    // db usermenu
+    private $_tableMenu = "user_menu";
 
-        }else {
-            $result = $this->db->get_where('submenu',['id_menu' => $id, 'in_aktif' => $ac])->result();
-        }
+    public $id;
+    public $menu;
 
-        return $result;
+    public function getByIdMenu($id) {
+        return $this->db->get_where($this->_tableMenu, ['id' => $id])->row();
     }
-    public function getMenuAkses($id = null, $ug = null)
-    {
-        $this->db->select(' a.*, b.usergroup, c.menu');
-        $this->db->from('menu_akses a');
-        $this->db->join('usergroup b', 'a.id_usergroup = b.id_usergroup', 'left');
-        $this->db->join('menu c', 'a.id_menu = c.id_menu', 'left');
-        
-        if ($ug!=null) {
-            $this->db->where('a.id_usergroup', $ug);
-        }
 
-        if ($id!=null) {
-            $this->db->where('a.id_menu', $id);
-        }
-        
-        $result = $this->db->get()->result();
+    public function saveMenu() {
+        $post = $this->input->post();
+        $this->menu = $post['menu'];
 
-        return $result;
+        return $this->db->insert($this->_tableMenu, $this);
     }
-    public function cariMenuakses($id=null, $offset=null)
-    {
-        $query="
-            SELECT a.*, b.usergroup, c.menu FROM menu_akses a
-            LEFT JOIN usergroup b ON a.id_usergroup=b.id_usergroup
-            LEFT JOIN menu c ON a.id_menu=c.id_menu
-            WHERE a.id_usergroup LIKE '%$id%'
-            
-        ";
-        if ($offset!=null) {
-            $query .="
-            ORDER BY a.id_menu_akses ASC
-            OFFSET $offset ROWS 
-            FETCH NEXT 15 ROWS ONLY;
-            ";
-        }
-        
-            $result = $this->db->query($query);
-            return $result;
-        
+
+    public function updateMenu() {
+        $post = $this->input->post();
+        $this->id = $post['id'];
+        $this->menu = $post['menu'];
+
+        return $this->db->update($this->_tableMenu, $this, array('id' => $post['id']));
     }
-    public function delMenuAkses($id)
-    {
-       $this->db->where('id_menu_akses', $id);
-       $this->db->delete('menu_akses');
-       return $this->db->affected_rows();
+
+    public function deleteMenu($id) {
+        return $this->db->delete($this->_tableMenu, array("id" => $id));
     }
-    public function addMenuAkses($data)
-    {
-       $this->db->insert('menu_akses',$data );
-       return $this->db->affected_rows();
-    }
+
 }
-
-/* End of file M_Menu.php */
-
-?>

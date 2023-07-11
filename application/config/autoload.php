@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('session','form_validation','pagination','database');
+$autoload['libraries'] = array('session','form_validation','pagination','database','email');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','file');
+$autoload['helper'] = array('url', 'file', 'security', 'mc');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('mpp/m_mpp','thl/m_thl','karyawan/m_karyawan_pribadi','master/m_keluarga','karyawan/m_pelamar');
+$autoload['model'] = array('mpp/m_mpp','thl/m_thl','karyawan/m_karyawan_pribadi','master/m_keluarga','karyawan/m_pelamar','master/m_menu','master/m_sub_menu');
