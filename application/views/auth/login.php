@@ -8,12 +8,12 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Login Page</title>
+      <title>SPDK | CANDI ARTHA</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- site icon -->
-      <link rel="icon" href="assets/images/fevicon.png" type="image/png" />
+      <link rel="icon" href="assets/images/CA BARU.png" type="image/png" />
       <!-- bootstrap css -->
       <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
       <!-- site css -->
@@ -38,10 +38,12 @@
           .logo_login {
     background: url('assets/images/layout_img/buah.jpg');
     padding: 50px 0;
+    opacity: 0.8;
     background-position: center center;
     position: relative;
-}
-      </style>
+    background-size: cover;
+    }
+         </style>
    </head>
    <body class="inner_page login">
       <div class="full_container">
@@ -57,21 +59,25 @@
                       <form class="user" method="post" action="<?= base_url('auth'); ?>">
                         <fieldset>
                            <div class="field">
-                              <label class="label_field">Username</label>
+                              <label class="label_field">Username :</label>
                               <input type="username" name="username" placeholder="Username" />
                            </div>
                            <div class="field">
-                              <label class="label_field">Password</label>
+                              <label class="label_field">Password :</label>
                               <input type="password" name="password" placeholder="Password" />
                            </div>
-                           <div class="field">
+                           <!-- <div class="field">
                               <label class="label_field hidden">hidden label</label>
                               <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
                               <a class="forgot"href="<?= base_url('auth/forgotpassword') ?>">Ganti Password?</a>
-                           </div>
-                           <div class="field margin_0">
-                              <label class="label_field hidden">hidden label</label>
+                           </div> -->
+                           <div class="ml-5 pl-lg-5 field">
+                              <div class="ml-5 pl-lg-5 field">
+                                  <div class="pl-lg-5 field mt-5">
+                              <!-- <label class="label_field hidden">hidden label</label> -->
                               <button class="main_bt" type="submit">Login</button>
+                                 </div>
+                              </div>
                            </div>
                         </fieldset>
                      </form>

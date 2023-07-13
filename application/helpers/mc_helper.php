@@ -25,8 +25,10 @@ function is_logged_in() {
             ]);
 
             // Continue with the rest of the function logic
+           
         } else {
             // Handle the case when the menu does not exist or the 'id' element is not set
+           
         }
     }
 }

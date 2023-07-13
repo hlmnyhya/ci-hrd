@@ -6,12 +6,13 @@ class Auth extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
+
     }
 
     public function index() {
-        // if ($this->session->userdata('email')) {
-        //     redirect('user');
-        // }
+        if ($this->session->userdata('username')) {
+            redirect('user');
+        }
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -196,7 +197,7 @@ class Auth extends CI_Controller {
     }
 
     public function logout() {
-        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('username');
         $this->session->unset_userdata('role_id');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

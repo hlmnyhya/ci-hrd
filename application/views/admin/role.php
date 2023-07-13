@@ -1,9 +1,14 @@
 <!-- Begin Page Content -->
+<div class="midde_cont">
+ <div class="container-fluid">
+     <div class="row column_title">
+         <div class="col-md-12">
+             <div class="page_title">
+                 <h2><?= $title?></h2>
+             </div>
+         </div>
+     </div>
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
-
     <!-- table row -->
     <div class="row">
         <div class="col-lg-6">
@@ -11,9 +16,9 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,7 +28,7 @@
                         <th scope="row"><?= $i ?></th>
                         <td><?= $r['role']; ?></td>
                         <td>
-                            <a class="badge badge-warning" href="<?= base_url('menu/admin/roleaccess/') . $r['id']; ?>">access</a>
+                            <a class="btn btn-warning" href="<?= base_url('menu/admin/roleaccess/') . $r['id']; ?>"><i class ="fa fa-key"></i></a>
                         </td>
                     </tr>
                     <?php $i++; ?>

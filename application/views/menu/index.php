@@ -31,14 +31,14 @@ function deleteConfirm(url){
             <!-- alert error edit data -->
             <?= $this->session->flashdata('message_error_editmenu'); ?>
             <!-- btn add new menu -->
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">Add New Menu</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal"><i class="fa fa-plus"></i> Tambah Menu</a>
             <!-- table -->
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Menu</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,8 +48,8 @@ function deleteConfirm(url){
                         <th scope="row"><?= $i ?></th>
                         <td><?= $m['menu']; ?></td>
                         <td>
-                            <a class="badge badge-success" href="<?= site_url('menu/menu/editMenu/'.$m['id']); ?>">edit</a>
-                            <a class="badge badge-danger" href="#!" onclick="deleteConfirm('<?php echo site_url('menu/menu/deleteMenu/'.$m['id']) ?>')">delete</a>
+                            <a class="btn btn-success" href="<?= site_url('menu/menu/editMenu/'.$m['id']); ?>"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-danger" href="#!" onclick="deleteConfirm('<?php echo site_url('menu/menu/deleteMenu/'.$m['id']) ?>')"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php $i++; ?>

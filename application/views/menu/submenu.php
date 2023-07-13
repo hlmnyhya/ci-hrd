@@ -35,18 +35,18 @@ function deleteConfirm(url){
             <!-- alert delete submenu -->
             <?= $this->session->flashdata('message_delete_submenu'); ?>
             <!-- btn add new submenu -->
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal"><i class="fa fa-plus"></i> Tambah Sub Menu</a>
             <!-- table -->
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Sub Menu</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Url</th>
                         <th scope="col">Icon</th>
-                        <th scope="col">Active</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,8 +60,8 @@ function deleteConfirm(url){
                         <td><?= $sm['icon']; ?></td>
                         <td><?= $sm['is_active']; ?></td>
                         <td>
-                            <a class="badge badge-success" href="<?= site_url('menu/menu/editSubmenu/'.$sm['id']); ?>">edit</a>
-                            <a class="badge badge-danger" href="#!" onclick="deleteConfirm('<?php echo site_url('menu/menu/deleteSubmenu/'.$sm['id']) ?>')">delete</a>
+                            <a class="btn btn-success" href="<?= site_url('menu/menu/editSubmenu/'.$sm['id']); ?>"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-danger" href="#!" onclick="deleteConfirm('<?php echo site_url('menu/menu/deleteSubmenu/'.$sm['id']) ?>')"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php $i++; ?>

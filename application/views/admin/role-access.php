@@ -1,9 +1,14 @@
 <!-- Begin Page Content -->
+<div class="midde_cont">
+ <div class="container-fluid">
+     <div class="row column_title">
+         <div class="col-md-12">
+             <div class="page_title">
+                 <h2><?= $title?></h2>
+             </div>
+         </div>
+     </div>
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
-
     <!-- table row -->
     <div class="row">
         <div class="col-lg-6">
@@ -17,7 +22,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Access</th>
                     </tr>
