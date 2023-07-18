@@ -3,59 +3,115 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
-	public function index()
-	{
-		$this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('Menu/user');
+    // tidak menerima user yang belum login
+    public function __construct() {
+        parent::__construct();
+		is_logged_in();
+
+        $this->load->model('M_Menu');
+        $this->load->model('M_Sub_Menu');
+    }
+    public function index() {
+        $data['title'] = 'My Profile';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('user/index', $data);
         $this->load->view('templates/footer');
-	}
-
-	 public function post_user()
-    {
-        $data = [
-			'id_user' => html_escape($this->input->post('id_user')),
-            'nama' => html_escape($this->input->post('nama')),
-            'username' => html_escape($this->input->post('username')),
-            'password' => html_escape($this->input->post('password')),
-            'id_usergroup' => html_escape($this->input->post('id_usergroup')),
-			'status' =>html_escape( $this->input->post('status')),
-        ]
-        $id = $data['id_user'];
-
-        $cek = $this->mmasdat->getUserById($id);
-        if ($cek) {
-            $this->session->set_flashdata('warning', 'sudah ada');
-
-            redirect('master_data/input_user');
-        } else {
-            $exec = $this->mmasdat->addUser($data);
-            if ($exec) {
-                $this->session->set_flashdata(
-                    'berhasil',
-                    'berhasil ditambahkan'
-                );
-                redirect('master_data/input_user');
-            } else {
-                $this->session->set_flashdata('gagal', 'gagal ditambahkan');
-                redirect('master_data/input_user');
-            }
-        }
     }
 
+    public function edit() {
+        $data['title'] = 'Edit Profile';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('name', 'Full Name', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/edit', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $name = $this->input->post('name');
+            $email = $this->input->post('email');
+
+            // cek gambar yang akan di upload
+            $upload_image  = $_FILES['image']['name'];
+
+            if ($upload_image) {
+                $config['allowed_types']    = 'jpg|jpeg|png';
+                $config['max_size']         = '6000';
+                $config['upload_path']      = './assets/img/profile/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('image')) {
+                    $old_image = $data['user']['image'];
+                    if ($old_image != 'default.jpg') {
+                        unlink(FCPATH . 'assets/img/profile/' . $old_image);
+                    }
+
+                    $new_image = $this->upload->data('file_name');
+                    $this->db->set('image', $new_image);
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+
+            $this->db->set('name', $name);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+
+            $this->session->set_flashdata('message_success_editprofile', '<div class="alert alert-success" role="alert">
+            Your profile has been updated!</div>');
+            redirect('user');
+        }  
+    }
+
+    public function changepassword() {
+        $data['title'] = 'Change Password';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+        $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
+        $this->form_validation->set_rules('new_password2', 'Confirm New Password', 'required|trim|min_length[3]|matches[new_password1]');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/changepassword', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password1');
+            // cek sama atau tidak password input dengan password yang ada di db
+            if (!password_verify($current_password, $data['user']['password'])) {
+                $this->session->set_flashdata('message_error_inputcurrentpassword', '<div class="alert alert-danger" role="alert">
+                Worng current password!</div>');
+                redirect('user/changepassword');
+            } else {
+                if ($current_password == $new_password) {
+                    $this->session->set_flashdata('message_error_inputnewpassword', '<div class="alert alert-danger" role="alert">
+                    New password cannot be the same as current password!</div>');
+                    redirect('user/changepassword');
+                } else {
+                    // password sudah ok
+                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                    
+                    $this->db->set('password', $password_hash);
+                    $this->db->where('email', $this->session->userdata('email'));
+                    $this->db->update('user');
+
+                    $this->session->set_flashdata('message_success_changepassword', '<div class="alert alert-success" role="alert">
+                    Password changed!</div>');
+                    redirect('user/changepassword');
+                }
+            }
+        }
+        
+    }
+    
 }

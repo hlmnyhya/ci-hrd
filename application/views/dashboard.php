@@ -50,7 +50,7 @@
                                    <div class="counter_no">
                                        <div>
                                            <p class="total_no">342</p>
-                                           <p class="head_couter">Gender</p>
+                                           <p class="head_couter">Jenis Kelamin</p>
                                        </div>
                                    </div>
                                </div>
@@ -69,6 +69,7 @@
                                        </div>
                                    </div>
                                </div>
+                           </div>
                            </div>
 
                            <!-- graph -->
@@ -95,10 +96,9 @@
                                </div>
                            </div>
                            <!-- end graph -->
-                           <!-- end testimonial -->
                            <!-- progress bar -->
-                           <div class="col-md-6">
-                               <div class="white_shd full margin_bottom_30">
+                           <!-- <div class="col-md-6">
+                           <div class="white_shd full margin_bottom_30">
                                    <div class="full graph_head">
                                        <div class="heading1 margin_0">
                                            <h2>Progress Bar</h2>
@@ -107,8 +107,8 @@
                                    <div class="full progress_bar_inner">
                                        <div class="row">
                                            <div class="col-md-12">
-                                               <div class="progress_bar">
-                                                   <!-- Skill Bars -->
+                                               <div class="progress_bar"> 
+                                                    Skill Bars 
                                                    <span class="skill" style="width:73%;">Facebook <span
                                                            class="info_valume">73%</span></span>
                                                    <div class="progress skill-bar ">
@@ -155,4 +155,6 @@
                                    </div>
                                </div>
                            </div>
-                           <!-- end progress bar -->
+                           </div>
+                           </div>
+                           end progress bar -->

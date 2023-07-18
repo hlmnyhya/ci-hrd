@@ -20,7 +20,8 @@ class Dashboard3 extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Dashboard | PKS';
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard3');
         $this->load->view('templates/footer');

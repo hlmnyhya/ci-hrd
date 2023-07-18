@@ -20,7 +20,8 @@ class Dashboard1 extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Dashboard | PT. Lunik Anugerah';
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard1');
         $this->load->view('templates/footer');

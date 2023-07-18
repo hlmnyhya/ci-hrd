@@ -22,7 +22,7 @@ class TrackRecord extends CI_Controller {
 	{
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('RiwayatGolongan/trackrecord');
+        $this->load->view('Master/RiwayatGolongan/trackrecord');
         $this->load->view('templates/footer');
 	}
 }

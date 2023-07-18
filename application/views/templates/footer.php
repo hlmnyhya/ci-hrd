@@ -1,15 +1,12 @@
  <!-- footer -->
- <div class="container-fluid">
+<div class="inner_container">
      <div class="footer">
-         <p>Copyright © 2018 Designed by html.design. All rights reserved.<br><br>
-             Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
-         </p>
-     </div>
- </div>
- </div>
- <!-- end dashboard inner -->
- </div>
- </div>
+    <?php $currentYear = date('Y'); ?>
+    <p>
+        Copyright &copy; <?php echo $currentYear; ?> All rights reserved.<br><br>
+        Developed By: <a href="https://mediacomputer.tech/">MediaComputer.Tech</a>
+    </p>
+    </div>
  </div>
  <!-- jQuery -->
  <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
@@ -34,6 +31,32 @@ var ps = new PerfectScrollbar('#sidebar');
  <!-- custom js -->
  <script src="<?php echo base_url();?>assets/js/chart_custom_style1.js"></script>
  <script src="<?php echo base_url();?>assets/js/custom.js"></script>
+
+ <script>
+
+$('.custom-file-input').on('change', function() {
+    let fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').addClass("selected").html(fileName);
+});
+
+$('.form-check-input').on('click', function() {
+    const menuId = $(this).data('menu');
+    const roleId = $(this).data('role');
+
+    $.ajax({
+        url: "<?= base_url('admin/changeaccess'); ?>",
+        type: 'post',
+        data: {
+            menuId: menuId,
+            roleId: roleId
+        },
+        success: function() {
+            document.location.href = "<?= base_url('admin/roleaccess/') ?>" + roleId;
+        }
+    });
+});
+</script>
+
  </body>
 
  </html>

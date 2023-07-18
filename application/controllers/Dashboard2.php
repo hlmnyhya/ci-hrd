@@ -20,7 +20,8 @@ class Dashboard2 extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Dashboard | Plasma Batakan';
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard2');
         $this->load->view('templates/footer');

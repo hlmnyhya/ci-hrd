@@ -20,9 +20,20 @@ class Karyawan extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Data Karyawan';
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('DataKaryawan/karyawan');
+        $this->load->view('v_karyawan/karyawan/karyawan');
         $this->load->view('templates/footer');
 	}
+
+	public function tambah()
+	{
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('v_karyawan/karyawan/tambahdatakaryawan');
+		$this->load->view('templates/footer');
+	}
+
+
 }
