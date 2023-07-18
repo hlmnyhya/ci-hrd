@@ -1,7 +1,7 @@
 <?php 
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_karyawan_masuk extends CI_Model{
+    class M_Karyawan_Masuk extends CI_Model{
     
     public function getKaryawanmasuk($id= null)
     {
