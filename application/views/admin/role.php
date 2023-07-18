@@ -28,7 +28,7 @@
                         <th scope="row"><?= $i ?></th>
                         <td><?= $r['role']; ?></td>
                         <td>
-                            <a class="btn btn-warning" href="<?= base_url('menu/admin/roleaccess/') . $r['id']; ?>"><i class ="fa fa-key"></i></a>
+                            <a class="btn btn-warning" href="<?= base_url('menu/admin/roleAccess/') . $r['id']; ?>"><i class ="fa fa-key"></i></a>
                         </td>
                     </tr>
                     <?php $i++; ?>
