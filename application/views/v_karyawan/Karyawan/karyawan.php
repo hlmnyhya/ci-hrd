@@ -14,7 +14,7 @@
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA KARYAWAN</h2>
-                            <td><a href="<?php echo base_url('DataKaryawan/tambah')?>"><button
+                            <td><a href="<?php echo base_url('DataKaryawan/karyawan/tambah')?>"><button
                                         class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
                                             Data</i></button></a></td>
                         </div>
