@@ -47,7 +47,7 @@
                             <ul class="collapse list-unstyled" id="element">
                                 <li><a href="<?php echo base_url('DataKaryawan/pribadi')?>">> <span>Pribadi</span></a>
                                 </li>
-                                <li><a href="<?php echo base_url('DataKaryawan/karyawan')?>">> <span>Karyawan</span></a>
+                                <li><a href="<?php echo base_url('karyawan')?>">> <span>Karyawan</span></a>
                                 </li>
                             </ul>
                         </li>

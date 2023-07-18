@@ -10,21 +10,26 @@
         <div class="row column1">
             <div class="col-md-12"></div>
             <div class="col-md-12">
+            <?php if ($this->session->flashdata('message')): ?>
+            <?= $this->session->flashdata('message') ?>
+            <?php endif; ?>
                 <div class="white_shd full margin_bottom_30">
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA THL</h2>
-                            <td><a href="<?php echo base_url('Thl/thl/tambah_data')?>"><button
-                                        class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
-                                            Data</i></button></a></td>
+                            <td>
+                                <a href="<?php echo base_url('Thl/thl/tambah_data')?>" class="btn icon btn-primary">
+                                    <i class="fa fa-plus"></i> Tambah Data
+                                </a>
+                            </td>
                         </div>
                     </div>
                     <div class="table_section padding_infor_info">
                         <div class="table-responsive-sm">
-                            <table class="table table-hover data">
+                            <table id="thl" class="display" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>NO</th>
                                         <th>NAMA</th>
                                         <th>NIK</th>
                                         <th>DIVISI</th>
@@ -40,7 +45,7 @@
                                     <?php $no=1; foreach($thl as $t) : ?>
                                         <tr>
                                             <td><?php echo $no++ ?></td>
-                                            <td><?php echo $t->nama?></td>
+                                            <td><?php echo $t->nama_thl?></td>
                                             <td><?php echo $t->nik?></td>
                                             <td><?php echo $t->divisi?></td>
                                             <td><?php echo $t->jabatan?></td>

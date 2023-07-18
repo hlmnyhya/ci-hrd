@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Nama</label>
-                    <input type="text" class="form-control col-md-6" name="nama" id="formGroupExampleInput2" value="<?php echo $t->nama; ?>" placeholder="">
+                    <input type="text" class="form-control col-md-6" name="nama_thl" id="formGroupExampleInput2" value="<?php echo $t->nama; ?>" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">NIK</label>

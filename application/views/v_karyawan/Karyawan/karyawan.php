@@ -8,13 +8,20 @@
             </div>
         </div>
         <div class="row column1">
-            <div class="col-md-12"></div>
             <div class="col-md-12">
+            <div class="col-md-12">
+                  <?php if ($this->session->flashdata('message')): ?>
+                <?= $this->session->flashdata('message') ?>
+                <?php endif; ?>
                 <div class="white_shd full margin_bottom_30">
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA KARYAWAN</h2>
+<<<<<<< HEAD
                             <td><a href="<?php echo base_url('DataKaryawan/karyawan/tambah')?>"><button
+=======
+                            <td><a href="<?php echo base_url('DataKaryawan/')?>"><button
+>>>>>>> b5d01ceafb9d6325b3f5f3b324af4ae6811a59f9
                                         class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
                                             Data</i></button></a></td>
                         </div>

@@ -22,6 +22,9 @@
     <!-- site icon -->
     <link rel="icon" href="<?php echo base_url();?>assets/images/CA BARU.png" type="image/png" />
 
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
     <!-- bootstrap css -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css');?>" />
     <!-- site css -->

@@ -9,69 +9,46 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="form-group">
-                    <input type="hidden" class=" form-control col-md-6" name="" id="formGroupExampleInput2"
-                        placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Nama</label>
-                    <input type="text" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Alamat</label>
-                    <input type="text" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Tanggal Lahir</label>
-                    <input type="date" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Jenis Kelamin</label>
-                    <select class="form-control col-md-6" name="asli" require="true">
-                        <option selected disabled>--Pilih--</option>
-                        <option>Laki-Laki</option>
-                        <option>Perempuan</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Gaji</label>
-                    <input type="text" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Nomer Telpon</label>
-                    <input type="number" class="form-control col-md-6" name="" id="formGroupExampleInput2"
-                        placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Email</label>
-                    <input type="text" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Alamat</label>
-                    <input type="text" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Tanggal Masuk</label>
-                    <input type="date" class="form-control col-md-6" name="" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <input type="hidden" class=" form-control col-md-6" name="" id="formGroupExampleInput2"
-                        placeholder="">
-                </div>
-                <div class="form-group">
-                    <input type="hidden" class=" form-control col-md-6" name="" id="formGroupExampleInput2"
-                        placeholder="">
-                </div>
-                <div class="form-group">
-                    <input type="hidden" class="form-control col-md-6" name="" id="formGroupExampleInput2"
-                        placeholder="">
-                </div>
-                <br>
-                <td>
-                    <a href="<?php echo base_url('DataPelamar/datapelamar')?>"><button
-                            class="btn btn-primary btn-">Simpan <i class="fa fa-arrow-circle-right">
-                            </i></button></a>
-                </td>
-                </form>
+               <form action="<?php echo base_url('DataPelamar/datapelamar/create'); ?>" method="post" role="form" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="hidden" class="form-control col-md-6" name="id_pelamar" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Nama</label>
+        <input type="text" class="form-control col-md-6" name="nama" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Alamat</label>
+        <input type="text" class="form-control col-md-6" name="alamat" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Tanggal Lahir</label>
+        <input type="date" class="form-control col-md-6" name="tanggal_lahir" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Jenis Kelamin</label>
+        <select class="form-control col-md-6" name="jenis_kelamin" required>
+            <option selected disabled>--Pilih Jenis Kelamin--</option>
+            <option value="Laki-Laki">Laki-Laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Nomor Telepon</label>
+        <input type="number" class="form-control col-md-6" name="no_telp" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Email</label>
+        <input type="email" class="form-control col-md-6" name="email" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">File</label>
+        <input type="file" class="form-control col-md-6" name="file" id="formGroupExampleInput2" placeholder="">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Simpan <i class="fa fa-arrow-circle-right"></i></button>
+    </div>
+</form>
+
             </main>
         </div>
