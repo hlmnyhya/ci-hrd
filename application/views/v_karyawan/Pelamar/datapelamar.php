@@ -18,7 +18,7 @@
                         <div class="heading1 margin_0">
                             <h2>LIST DATA PELAMAR</h2>
                             <td>
-                                <a href="<?php echo base_url('DataPelamar/datapelamar/tambah_data_pelamar')?>" class="btn icon btn-primary">
+                                <a href="<?php echo base_url('DataPelamar/DataPelamar/tambah_data_pelamar')?>" class="btn icon btn-primary">
                                     <i class="fa fa-plus"></i> Tambah Data
                                 </a>
                             </td>
