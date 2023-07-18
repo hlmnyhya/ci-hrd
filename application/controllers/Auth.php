@@ -26,7 +26,7 @@ class Auth extends CI_Controller {
         }
     }
 
-    private function _login()
+   private function _login()
 {
     $username = $this->input->post('username');
     $password = $this->input->post('password');
@@ -45,28 +45,31 @@ class Auth extends CI_Controller {
                     'role_id' => $user['role_id']
                 ];
                 $this->session->set_userdata($data);
-                // Check role
+
+                // Menampilkan loading screen
+                echo '<script>document.getElementById("loading").style.display = "block";</script>';
+
+                // Check role and redirect
                 if ($user['role_id'] == 1) {
                     redirect('dashboard');
                 } else {
                     redirect('dashboard1');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Wrong password!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . html_escape('Wrong password!') . '</div>');
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-            This account has not been activated!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . html_escape('This account has not been activated!') . '</div>');
             redirect('auth');
         }
     } else {
-        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-        Username is not registered!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . html_escape('Username is not registered!') . '</div>');
         redirect('auth');
     }
 }
+
+
     public function registration() {
         if ($this->session->userdata('email')) {
             redirect('user');

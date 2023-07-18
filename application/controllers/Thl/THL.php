@@ -21,7 +21,7 @@ class THL extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Data THL';
-		$data['thl'] = $this->m_thl->show_data()->result();
+		$data['thl'] = $this->M_Thl->show_data()->result();
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('Thl/thl', $data);
@@ -31,8 +31,8 @@ class THL extends CI_Controller {
 	 public function tambah_data()
 	{
 		$data['title'] = 'Tambah Data THL';
-		$data['divisi'] = $this->m_thl->show_divisi()->result();
-		$data['jabatan'] = $this->m_thl->show_jabatan()->result();
+		$data['divisi'] = $this->M_Thl->show_divisi()->result();
+		$data['jabatan'] = $this->M_Thl->show_jabatan()->result();
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('Thl/tambahdatathl', $data);
@@ -63,8 +63,8 @@ class THL extends CI_Controller {
 			'status' => $status
 		);
 
-		$this->m_thl->insert_data('thl', $data);
-
+		$this->M_Thl->insert_data('thl', $data);
+		 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . html_escape('Data THL Berhasil ditambah') . '</div>');
 		redirect('Thl/thl');
 	}
 
@@ -73,15 +73,13 @@ class THL extends CI_Controller {
 	    $where = array('id_thl' => $id);
 		$data['title'] = 'Edit Data THL';
 	    $data['thl'] = $this->db->query("SELECT * FROM thl WHERE id_thl = '$id'")->result();
-	    $data['divisi'] = $this->m_thl->show_divisi()->result();
-	    $data['jabatan'] = $this->m_thl->show_jabatan()->result();
+	    $data['divisi'] = $this->M_Thl->show_divisi()->result();
+	    $data['jabatan'] = $this->M_Thl->show_jabatan()->result();
 	    $this->load->view('templates/header', $data);
 	    $this->load->view('templates/sidebar');
 	    $this->load->view('thl/editdatathl', $data);
 	    $this->load->view('templates/footer');
 	}
-
-
 
 	public function edit_data()
 	{
@@ -111,7 +109,8 @@ class THL extends CI_Controller {
 			'id_thl' => $id
 		);
 
-		$this->m_thl->update_data('thl', $data, $where);
+		$this->M_Thl->update_data('thl', $data, $where);
+		 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . html_escape('Data THL Berhasil diubah') . '</div>');
 		redirect('thl/thl');
 	}
 
@@ -122,7 +121,8 @@ class THL extends CI_Controller {
 			redirect('thl/thl');
 		}
     	$where = array('id_thl' => $id);
-    	$this->m_thl->delete_data($where, 'thl');
+    	$this->M_Thl->delete_data($where, 'thl');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . html_escape('Data THL Berhasil dihapus') . '</div>');
 		redirect('thl/thl');
     }
 

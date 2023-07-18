@@ -1,7 +1,7 @@
 <?php 
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_jabatan extends CI_Model{
+    class M_Jabatan extends CI_Model{
         
        public function getJabatan($id=null, $offset=null)
     {

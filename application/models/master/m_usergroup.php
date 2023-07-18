@@ -1,7 +1,7 @@
 <?php 
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_usergroup extends CI_Model{
+    class M_Usergroup extends CI_Model{
     
         public function getUserGroup($id = null,$offset=null)
       {

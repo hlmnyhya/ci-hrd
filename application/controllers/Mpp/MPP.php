@@ -12,7 +12,7 @@ class MPP extends CI_Controller {
     public function index()
     {
         $data['title'] = 'Data MPP';
-        $data['mpp'] = $this->m_mpp->show_data()->result();
+        $data['mpp'] = $this->M_Mpp->show_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('Mpp/mpp', $data);
@@ -59,7 +59,7 @@ class MPP extends CI_Controller {
             'keterangan' => $keterangan
         );
 
-        $this->m_mpp->insert_data('mpp', $data);
+        $this->M_Mpp->insert_data('mpp', $data);
         redirect('mpp/mpp');
     }
 
@@ -87,7 +87,7 @@ class MPP extends CI_Controller {
 			'id_mpp' => $id
 		);
 
-		$this->m_mpp->update_data('mpp', $data, $where);
+		$this->M_Mpp->update_data('mpp', $data, $where);
 		redirect('mpp/mpp'); // Change 'komoditas' to 'mpp' if that's the correct redirection URL
 	}
 
@@ -97,7 +97,7 @@ class MPP extends CI_Controller {
 			redirect('Mpp/mpp');
 		}
     	$where = array('id_mpp' => $id);
-    	$this->m_mpp->delete_data($where, 'mpp');
+    	$this->M_Mpp->delete_data($where, 'mpp');
 		redirect('Mpp/mpp');
     }
 

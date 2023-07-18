@@ -47,7 +47,7 @@
         <input type="file" class="form-control col-md-6" name="file" id="formGroupExampleInput2" placeholder="" value="<?php echo $p->file; ?>">
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Simpan <i class="fa fa-arrow-circle-right"></i></button>
+        <button type="submit" class="btn btn-primary">Simpan<i class="fa fa-arrow-circle-right"></i></button>
     </div>
 </form>
 <?php endforeach; ?>

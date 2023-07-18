@@ -38,11 +38,42 @@
           .logo_login {
     background: url('assets/images/layout_img/buah.jpg');
     padding: 50px 0;
-    opacity: 0.8;
+    opacity: 0.9;
     background-position: center center;
     position: relative;
     background-size: cover;
     }
+       <style>
+      /* CSS untuk elemen loading */
+      #loading {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 15s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+   </style>
          </style>
    </head>
    <body class="inner_page login">
@@ -56,7 +87,10 @@
                      </div>
                   </div>
                   <div class="login_form">
-                      <form class="user" method="post" action="<?= base_url('auth'); ?>">
+                        <?php if ($this->session->flashdata('message')): ?>
+                        <?= $this->session->flashdata('message') ?>
+                        <?php endif; ?>
+                     <form class="user" method="post" action="<?= base_url('auth'); ?>">
                         <fieldset>
                            <div class="field">
                               <label class="label_field">Username :</label>
@@ -101,5 +135,14 @@
       </script>
       <!-- custom js -->
       <script src="assets/js/custom.js"></script>
+      <!-- ... Kode lainnya ... -->
+      <script>
+        // Menyembunyikan loading screen
+        window.addEventListener("load", function() {
+          document.getElementById("loading").style.display = "none";
+        });
+      </script>
+      <!-- ... Kode lainnya ... -->
+
    </body>
 </html>

@@ -1,7 +1,7 @@
 <?php 
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_divisi extends CI_Model{
+    class M_Divisi extends CI_Model{
         
        public function getDivisi($id=null, $offset=null)
     {

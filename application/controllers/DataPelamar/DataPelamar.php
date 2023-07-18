@@ -21,7 +21,7 @@ class DataPelamar extends CI_Controller {
 	public function index()
 	{
 		$config['base_url'] = base_url('DataPelamar/Pelamar/index');
-    	$config['total_rows'] = $this->m_pelamar->count_data();
+    	$config['total_rows'] = $this->M_Pelamar->count_data();
     	$config['per_page'] = 3;
     	$config['uri_segment'] = 4;
 		
@@ -29,7 +29,7 @@ class DataPelamar extends CI_Controller {
     	$this->pagination->initialize($config);
 		
     	$offset = $this->uri->segment(4) ? $this->uri->segment(4) : 1;
-    	$data['pelamar'] = $this->m_pelamar->get_data($config['per_page'], $offset)->result();
+    	$data['pelamar'] = $this->M_Pelamar->get_data($config['per_page'], $offset)->result();
     	$data['pagination'] = $this->pagination->create_links();
 		
     	// Periksa apakah properti nomor_halaman ada dalam data pribadi
@@ -41,7 +41,7 @@ class DataPelamar extends CI_Controller {
     	}
 		
 		$data['title'] = 'Data Pelamar';
-		$data['pelamar'] = $this->m_pelamar->show_data()->result();
+		$data['pelamar'] = $this->M_Pelamar->show_data()->result();
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('v_karyawan/pelamar/datapelamar', $data);
@@ -93,20 +93,11 @@ public function create()
 			);
 
 
-            $this->m_pelamar->insert_data('pelamar', $data);
+            $this->M_Pelamar->insert_data('pelamar', $data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pelamar Berhasil Ditambahkan</div>');
             redirect('DataPelamar/DataPelamar');
     }
 }
-
-	public function delete($id = NULL)
-    {
-    	if($id == null){
-			redirect('DataPelamar/DataPelamar');
-		}
-    	$where = array('id_pelamar' => $id);
-    	$this->m_pelamar->delete_data($where, 'pelamar');
-		redirect('DataPelamar/DataPelamar');
-    }
 
 	public function edit($id)
 	{
@@ -119,7 +110,7 @@ public function create()
         $this->load->view('templates/footer');
 	}
 
-	public function edit_data($id)
+	public function edit_data()
 	{
     // Mendapatkan input data dari form
     $nama = $this->input->post('nama');
@@ -164,11 +155,26 @@ public function create()
         'file' => $file
     );
 
-    // Panggil model untuk melakukan update data ke database
-    $this->m_pelamar->update_data('pelamar',$data,$id);
+	$where = array(
+		'id_pelamar' => $id
+	);
 
+    // Panggil model untuk melakukan update data ke database
+    $this->M_Pelamar->update_data('pelamar',$data,$id);
+	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pelamar Berhasil Diubah</div>');
     redirect('DataPelamar/DataPelamar');
 	}
+
+	public function delete($id = NULL)
+    {
+    	if($id == null){
+			redirect('DataPelamar/DataPelamar');
+		}
+    	$where = array('id_pelamar' => $id);
+    	$this->M_Pelamar->delete_data($where, 'pelamar');
+		$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Pelamar Berhasil Dihapus</div>');
+		redirect('DataPelamar/DataPelamar');
+    }
 }
 
 

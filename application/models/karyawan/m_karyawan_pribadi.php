@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
     
-class M_karyawan_pribadi extends CI_Model{
+class M_Karyawan_Pribadi extends CI_Model{
     
 public function show_data()
 {

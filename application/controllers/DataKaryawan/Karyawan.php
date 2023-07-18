@@ -20,7 +20,8 @@ class Karyawan extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('templates/header');
+		$data['title'] = 'Data Karyawan';
+		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('v_karyawan/karyawan/karyawan');
         $this->load->view('templates/footer');

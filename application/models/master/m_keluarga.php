@@ -1,7 +1,7 @@
 <?php 
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_keluarga extends CI_Model{
+    class M_Keluarga extends CI_Model{
      public function show_data()
 {
     return $this->db->query('SELECT * FROM keluarga');

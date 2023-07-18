@@ -1,19 +1,12 @@
  <!-- footer -->
- <div class="container-fluid">
+<div class="inner_container">
      <div class="footer">
     <?php $currentYear = date('Y'); ?>
     <p>
         Copyright &copy; <?php echo $currentYear; ?> All rights reserved.<br><br>
-        Developed By: <a href="https://mediacomputer.tech/">MC.TECH</a>
+        Developed By: <a href="https://mediacomputer.tech/">MediaComputer.Tech</a>
     </p>
-    
-</div>
-
- </div>
- </div>
- <!-- end dashboard inner -->
- </div>
- </div>
+    </div>
  </div>
  <!-- jQuery -->
  <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
