@@ -40,7 +40,7 @@ class Menu extends CI_Controller {
             New menu added!</div>');
         }
 
-        redirect('menu');
+        redirect('Menu/Menu');
     }
 
     // edit menu
@@ -124,14 +124,12 @@ class Menu extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['subMenu'] = $this->db->get('user_sub_menu')->result_array();
 
-        $this->load->model('m_menu', 'menu');
-
-        $data['subMenu'] = $this->m_menu->getSubMenu();
+        $data['subMenu'] = $this->M_Menu->getSubMenu();
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
         if (!isset($id)) redirect('menu');
 
-        $menu = $this->m_sub_menu;
+        $menu = $this->M_Sub_Menu;
         $validation = $this->form_validation->set_rules('title', 'Title', 'required');
         $validation = $this->form_validation->set_rules('menu_id', 'Menu', 'required');
         $validation = $this->form_validation->set_rules('url', 'Url', 'required');

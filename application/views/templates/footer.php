@@ -40,6 +40,10 @@ var ps = new PerfectScrollbar('#sidebar');
  </script>
 
  <script>
+    new DataTable('#riwayat');
+ </script>
+
+ <script>
     new DataTable('#karyawan');
  </script>
 

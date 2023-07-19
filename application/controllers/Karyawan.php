@@ -34,7 +34,6 @@ class Karyawan extends CI_Controller {
 		$data['divisi'] 	= $this->M_karyawan->getDivisi()->result();
 		$data['jabatan'] 	= $this->M_karyawan->getJabatan()->result();
 		$data['golongan'] 	= $this->M_karyawan->getGolongan()->result();
-		$data['thl'] 		= $this->M_karyawan->getThl()->result();
 		$data['pribadi'] 	= $this->M_karyawan->getPribadi()->result();
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -57,14 +56,6 @@ class Karyawan extends CI_Controller {
 		$status_ptkp 		= $this->input->post('status_ptkp');
 		$alamat_ktp 		= $this->input->post('alamat_ktp');
 		$alamat_domisili 	= $this->input->post('alamat_domisili');
-		$pkwt_mulai 		= $this->input->post('pkwt_mulai');
-		$pkwt_selesai 		= $this->input->post('pkwt_selesai');
-		$pkwt2_mulai 		= $this->input->post('pkwt2_mulai');
-		$pkwt2_selesai 		= $this->input->post('pkwt2_selesai');
-		$tht 				= $this->input->post('tht');
-		$thl 				= $this->input->post('thl');
-		$percobaan_mulai 	= $this->input->post('percobaan_mulai');
-		$percobaan_selesai 	= $this->input->post('percobaan_selesai');
 		$karyawan_pribadi 	= $this->input->post('karyawan_pribadi');
 
 		$data = array(
@@ -81,15 +72,6 @@ class Karyawan extends CI_Controller {
 			'status_ptkp' 		=> $status_ptkp,
 			'alamat_ktp'		=> $alamat_ktp,
 			'alamat_domisili' 	=> $alamat_domisili,
-			'pkwt_mulai'		=> $pkwt_mulai,
-			'pkwt_selesai' 		=> $pkwt_selesai,
-			'pkwt2_mulai'		=> $pkwt2_mulai,
-			'pkwt2_selesai' 	=> $pkwt2_selesai,
-			'tht'				=> $tht,
-			'thl' 				=> $thl,
-			'percobaan_mulai'	=> $percobaan_mulai,
-			'percobaan_selesai' => $percobaan_selesai,
-			'percobaan_selesai'	=> $percobaan_selesai,
 			'karyawan_pribadi' 	=> $karyawan_pribadi,
         );
         

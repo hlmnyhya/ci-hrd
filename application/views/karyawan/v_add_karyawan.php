@@ -86,45 +86,6 @@
                     <label for="formGroupExampleInput2">Alamat Domisili</label>
                     <input type="text" class="form-control col-md-6" name="alamat_domisili" id="formGroupExampleInput2" placeholder="">
                 </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">PKWT-Mulai</label>
-                    <input type="date" class="form-control col-md-6" name="pkwt_mulai" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInp ut2">PKWT-Selesai</label>
-                    <input type="date" class="form-control col-md-6" name="pkwt_selesai" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">PKWT2-Mulai</label>
-                    <input type="date" class="form-control col-md-6" name="pkwt2_mulai" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">PKWT2-Selesai</label>
-                    <input type="date" class="form-control col-md-6" name="pkwt2_selesai" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">THT</label>
-                    <input type="date" class="form-control col-md-6" name="tht" id="formGroupExampleInput2" placeholder="">
-                </div>
-
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">THL</label>
-                    <select class="form-control col-md-6" aria-label="Default select example" name="thl">
-                        <option selected disabled>Pilih THL</option>
-                        <?php foreach($thl as $t) { ?>
-                        <option value="<?= $t->id_thl ?>"><?= $t->nama?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Percobaan-Mulai</label>
-                    <input type="date" class="form-control col-md-6" name="percobaan_mulai" id="formGroupExampleInput2" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Percobaan-Selesai</label>
-                    <input type="date" class="form-control col-md-6" name="percobaan_selesai" id="formGroupExampleInput2" placeholder="">
-                </div>
 
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Data Pribadi</label>

@@ -76,7 +76,7 @@ function deleteConfirm(url){
         </button>
       </div>
       <!-- form -->
-      <form action="<?= site_url('menu/addMenu'); ?>" method="post">
+      <form action="<?= site_url('Menu/Menu/addMenu'); ?>" method="post">
         <div class="modal-body">
             <div class="form-group">
                 <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu name">

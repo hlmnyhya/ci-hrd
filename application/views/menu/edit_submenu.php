@@ -23,7 +23,7 @@
                 	<div class="form-group">
                 		<label for="menu">Title Sub Menu</label>
                 		<input class="form-control <?php echo form_error('title') ? 'is-invalid':'' ?>"
-                		 type="text" name="title" placeholder="Title menu" value="<?php echo $subMenu->submenu ?>" />
+                		 type="text" name="submenu" placeholder="Title menu" value="<?php echo $subMenu->submenu ?>" />
                 		<div class="invalid-feedback">
                 			<?php echo form_error('title') ?>
                 		</div>
@@ -74,6 +74,5 @@
     
 </div>
 <!-- /.container-fluid -->
-
 </div>
 <!-- End of Main Content -->
