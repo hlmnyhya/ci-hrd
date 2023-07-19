@@ -40,7 +40,7 @@ class Menu extends CI_Controller {
             New menu added!</div>');
         }
 
-        redirect('menu');
+        redirect('Menu/Menu');
     }
 
     // edit menu
