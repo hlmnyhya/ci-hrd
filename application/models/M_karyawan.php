@@ -43,6 +43,11 @@ class M_karyawan extends CI_Model{
 
     public function getKaryawan()
     {
+        return $this->db->query('SELECT * FROM karyawan_pribadi');
+    }
+
+    public function getKaryawan2()
+    {
         return $this->db->query('SELECT * FROM karyawan');
     }
 

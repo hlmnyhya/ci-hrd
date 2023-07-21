@@ -12,11 +12,13 @@ public function count_data()
 {
     return $this->db->count_all('karyawan_pribadi'); // Gantikan 'nama_tabel' dengan nama tabel yang sesuai
 }
-
 public function get_data($limit, $offset)
 {
-    return $this->db->get('karyawan_pribadi', $limit, $offset); // Gantikan 'nama_tabel' dengan nama tabel yang sesuai
+    // Gunakan method limit() dan offset() dari CodeIgniter Query Builder
+    $this->db->limit($limit, $offset);
+    return $this->db->get('karyawan_pribadi');
 }
+
 
 public function insert_data($table, $data)
 {

@@ -15,6 +15,12 @@ class M_riwayat extends CI_Model{
         return $query;
     }
 
+     public function getKaryawan()
+    {
+        return $this->db->query('SELECT * FROM karyawan_pribadi');
+    }
+
+
     public function get_data($table){
         return $this->db->get($table);
     }

@@ -62,7 +62,7 @@
                         <?php foreach ($subMenu as $sm) : ?>
                             <li>
                                 <a href="<?= base_url($sm['url']) ?>">
-                                    <i class="<?= $sm['icon'] ?>"></i>
+                                    <span> > </span>
                                     <span><?= $sm['submenu'] ?></span>
                                 </a>
                             </li>

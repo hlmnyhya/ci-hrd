@@ -18,7 +18,7 @@
                         <div class="heading1 margin_0">
                             <h2>LIST DATA PRIBADI</h2>
                             <td>
-                                <a href="<?php echo base_url('DataKaryawan/pribadi/tambah_data_pribadi')?>" class="btn icon btn-primary">
+                                <a href="<?php echo base_url('DataKaryawan/Pribadi/tambah_data_pribadi')?>" class="btn icon btn-primary">
                                     <i class="fa fa-plus"></i> Tambah Data
                                 </a>
                             </td>
@@ -69,7 +69,7 @@
             <ul class="pagination justify-content-center">
                 <!-- <?php echo $pagination; ?> -->
                 <li class="page-item <?php echo $this->uri->segment(4) == 1 ?>">
-                    <a class="page-link btn btn-primary <?php echo $this->uri->segment(4) == 1 ?>" href="<?php echo base_url('DataKaryawan/              Pribadi/index/1'); ?>"><</a>
+                    <a class="page-link btn btn-primary <?php echo $this->uri->segment(4) == 1 ?>" href="<?php echo base_url('DataKaryawan/Pribadi/index/1'); ?>"><</a>
                 </li>
                 <?php foreach ($pribadi_with_pagination as $p) : ?>
                     <li class="page-item">

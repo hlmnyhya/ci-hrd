@@ -9,7 +9,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <form action="<?php echo base_url('DataKaryawan/pribadi/create_pribadi'); ?>" method="post" role="form">
+                <form action="<?php echo base_url('DataKaryawan/Pribadi/create_pribadi'); ?>" method="post" role="form">
                 <div class="form-group">
                     <input type="hidden" class=" form-control col-md-6" name="id_karyawan_pribadi" id="formGroupExampleInput2"
                         placeholder="">
@@ -64,11 +64,21 @@
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Tanggal Lahir</label>
-                    <input type="date" class="form-control col-md-6" name="tanggal_lahir" id="formGroupExampleInput2" placeholder="">
+                    <input type="date" class="form-control col-md-6" name="tanggal_lahir" id="tglLahir" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Usia</label>
-                    <input type="text" class="form-control col-md-6" name="usia" id="formGroupExampleInput2" placeholder="">
+                    <input type="text" class="form-control col-md-6" name="usia" id="usia" placeholder="" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Golongan Darah</label>
+                    <select class="form-control col-md-6" name="golongan_darah" require="true">
+                        <option selected disabled>--Pilih Golongan Darah--</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="AB">AB</option>
+                        <option value="O">O</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Keluarga</label>

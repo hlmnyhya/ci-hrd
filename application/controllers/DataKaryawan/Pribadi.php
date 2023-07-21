@@ -22,14 +22,14 @@ class Pribadi extends CI_Controller {
 	public function index()
 {
     $config['base_url'] = base_url('DataKaryawan/Pribadi/index');
-    // $config['total_rows'] = $this->M_Karyawan_Pribadi->count_data();
-    $config['per_page'] = 3;
-    $config['uri_segment'] = 4;
+    $config['total_rows'] = $this->M_Karyawan_Pribadi->count_data();
+    $config['per_page'] = 4;
+    $config['uri_segment'] = 3;
 
     $this->load->library('pagination');
     $this->pagination->initialize($config);
 
-    $offset = $this->uri->segment(4) ? $this->uri->segment(4) : 1;
+    $offset = $this->uri->segment(4) ? $this->uri->segment(4) : 0;
     $data['pribadi'] = $this->M_Karyawan_Pribadi->get_data($config['per_page'], $offset)->result();
     $data['pagination'] = $this->pagination->create_links();
 
@@ -59,6 +59,7 @@ class Pribadi extends CI_Controller {
         $this->load->view('templates/sidebar');
         $this->load->view('v_karyawan/pribadi/tambahdatapribadi');
         $this->load->view('templates/footer');
+		$this->load->view('v_karyawan/pribadi/_partials/footer2');
 	}
 
 	public function create_pribadi()
@@ -104,6 +105,7 @@ class Pribadi extends CI_Controller {
 		$this->load->view('templates/sidebar');
 		$this->load->view('v_karyawan/pribadi/editdatapribadi', $data);
 		$this->load->view('templates/footer');
+        $this->load->view('v_karyawan/karyawan/_partials/footer2');
 	}
 
 	public function edit_data_pribadi()

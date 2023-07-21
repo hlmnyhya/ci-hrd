@@ -2,29 +2,20 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     
     class M_Karyawan extends CI_Model{
+
+       
+    public function show_data()
+    {
+        $this->db->select('*');
+        $this->db->from('karyawan');
+        $this->db->join('karyawan_pribadi','karyawan_pribadi.id_karyawan_pribadi = karyawan.karyawan_pribadi');
+        $this->db->join('golongan','golongan.id_golongan = karyawan.golongan');
+        $this->db->join('jabatan','jabatan.id_jabatan = karyawan.jabatan');
+        $this->db->join('divisi','divisi.id_divisi = karyawan.divisi');
+        $query = $this->db->get();
+        return $query;
+    }
     
-    public function getKaryawan($id= null)
-    {
-        if ($id===null) {
-            $result = $this->db->get('karyawan')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('karyawan',['id_karyawan' => $id])->result();
-            return $result;               
-        }
-    }
-
-    public function getKaryawanbyid($id)
-    {
-        if ($id===null) {
-            $result = $this->db->get('karyawan')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('karyawan',['id_karyawan' => $id])->result();
-            return $result;               
-        }
-    }
-
     public function addKaryawan($data)
     {
         $result = $this->db->insert('karyawan',$data); 

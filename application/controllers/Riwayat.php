@@ -24,7 +24,7 @@ class Riwayat extends CI_Controller {
 		$data['riwayat'] = $this->M_riwayat->show_data()->result();
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('riwayat/v_riwayat', $data);
+        $this->load->view('Riwayat/v_riwayat', $data);
         $this->load->view('templates/footer');
 	}
 
@@ -34,11 +34,12 @@ class Riwayat extends CI_Controller {
         $data['divisi'] 	= $this->M_karyawan->getDivisi()->result();
 		$data['jabatan'] 	= $this->M_karyawan->getJabatan()->result();
 		$data['golongan'] 	= $this->M_karyawan->getGolongan()->result();
-        $data['karyawan'] 	= $this->M_karyawan->getKaryawan()->result();
+        $data['karyawan'] 	= $this->M_karyawan->getKaryawan2()->result();
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('riwayat/v_add_riwayat', $data);
+        $this->load->view('Riwayat/v_add_riwayat', $data);
         $this->load->view('templates/footer');
+        $this->load->view('Riwayat/_partials/footer2');
 	}
 
 	public function addRiwayat_proses()
@@ -84,7 +85,7 @@ class Riwayat extends CI_Controller {
 
         $this->db->where('id_karyawan', $id_karyawan);
 		$this->db->update('karyawan', $data2);
-        redirect('riwayat');
+        redirect('Riwayat');
 	}
 
     public function editRiwayat($id)
@@ -93,7 +94,7 @@ class Riwayat extends CI_Controller {
 		$data['riwayat'] = $this->M_riwayat->update_data($id);
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('riwayat/v_edit_riwayat', $data);
+        $this->load->view('Riwayat/v_edit_riwayat', $data);
         $this->load->view('templates/footer');
 	}
 
@@ -132,12 +133,12 @@ class Riwayat extends CI_Controller {
         
 		$this->db->where('id_riwayat', $id);
 		$this->db->update('riwayat', $data);
-        redirect('riwayat');
+        redirect('Riwayat');
 	}
 
     public function deleteRiwayat($id_riwayat)
 	{
 		$this->M_riwayat->delete_data($id_riwayat);
-        redirect(base_url('riwayat'));
+        redirect(base_url('Riwayat'));
 	}
 }

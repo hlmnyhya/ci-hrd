@@ -103,6 +103,15 @@ $('.form-check-input').on('click', function() {
     });
 });
 </script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "dd-mm-yy", // Format tanggal yang diinginkan
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
 
  </body>
 

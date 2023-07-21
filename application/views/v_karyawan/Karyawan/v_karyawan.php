@@ -14,9 +14,10 @@
                     <div class="full graph_head">
                         <div class="heading1 margin_0">
                             <h2>DATA KARYAWAN</h2>
-                            <td><a href="<?php echo base_url('karyawan/addKaryawan')?>"><button
-                                        class="btn btn-primary btn-xs"><i class="fa fa-plus"> Tambah
-                                            Data</i></button></a></td>
+                            <td><a href="<?php echo base_url('DataKaryawan/Karyawan/addKaryawan')?>" class="btn icon btn-primary">
+                                    <i class="fa fa-plus"></i> Tambah Data
+                                </a>
+                                        </td>
                         </div>
                     </div>
                     <div class="table_section padding_infor_info">

@@ -60,7 +60,7 @@ function deleteConfirm(url){
                         <td><?= $sm['icon']; ?></td>
                         <td><?= $sm['is_active']; ?></td>
                         <td>
-                            <a class="btn btn-success" href="<?= site_url('menu/menu/editSubmenu/'.$sm['id']); ?>"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-warning" href="<?= site_url('menu/menu/editSubmenu/'.$sm['id']); ?>"><i class="fa fa-edit"></i></a>
                             <a class="btn btn-danger" href="#!" onclick="deleteConfirm('<?php echo site_url('menu/menu/deleteSubmenu/'.$sm['id']) ?>')"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>

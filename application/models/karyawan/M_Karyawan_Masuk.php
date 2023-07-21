@@ -3,26 +3,12 @@
     
     class M_Karyawan_Masuk extends CI_Model{
     
-    public function getKaryawanmasuk($id= null)
+   public function show_data()
     {
-        if ($id===null) {
-            $result = $this->db->get('karyawan_masuk')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('karyawan_masuk',['id_karyawan_masuk' => $id])->result();
-            return $result;               
-        }
-    }
-
-    public function getKaryawanmasukbyid($id)
-    {
-        if ($id===null) {
-            $result = $this->db->get('karyawan_masuk')->result();
-            return $result;              
-        }else {
-            $result = $this->db->get_where('karyawan_masuk',['id_karyawan' => $id])->result();
-            return $result;               
-        }
+        $this->db->select('*');
+        $this->db->from('karyawan_masuk');
+        $query = $this->db->get();
+        return $query;
     }
 
     public function addKaryawanmasuk($data)

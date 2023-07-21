@@ -141,7 +141,7 @@
                 <br>
                 <button class="btn btn-primary" type="submit"><i class="fa fa-arrow-circle-right"></i> Simpan</button>
             </form>
-            <a href="<?php echo base_url('karyawan')?>"><button class="btn btn-danger btn-"><i
+            <a href="<?php echo base_url('DataKaryawan/Karyawan')?>"><button class="btn btn-danger btn-"><i
                 class="fa fa-arrow-circle-left">
             </i> Back</button></a>
             </main>
